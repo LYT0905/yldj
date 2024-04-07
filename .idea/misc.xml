@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-canal-sync/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-common/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-es/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-knife4j-web/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-mvc/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-mysql/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-framework/jzo2o-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-api-01-0/jzo2o-api/pom.xml" />
+        <option value="$PROJECT_DIR$/jzo2o-publics/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="corretto-11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
