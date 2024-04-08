@@ -6,12 +6,12 @@
 
 ## 二.项目业务模块
 
-[!img](https://github.com/LYT0905/yldj/blob/main/img/%E5%B0%8F%E6%99%BA%E5%B8%AE%E7%BB%93%E6%9E%84%E5%9B%BE%402x.png)
+[](https://github.com/LYT0905/yldj/blob/main/img/%E5%B0%8F%E6%99%BA%E5%B8%AE%E7%BB%93%E6%9E%84%E5%9B%BE%402x.png)
 
 ## 三.项目架构
 
 项目是基于Spring Cloud Alibaba框架构建的微服务项目，采用前后端分离模式进行开发，系统架构图如下：
-[!img](https://github.com/LYT0905/yldj/blob/main/img/image.png)
+[](https://github.com/LYT0905/yldj/blob/main/img/image.png)
 
 - 用户层：
 - 包括四个端：运营端(PC)、服务端（APP）、机构端（PC）、用户端（小程序）
@@ -29,5 +29,5 @@
 - 缓存：服务信息、订单信息、服务单信息等。
 
 项目核心交互流程如下图：
-[!img](https://github.com/LYT0905/yldj/blob/main/img/img.png)
+[](https://github.com/LYT0905/yldj/blob/main/img/img.png)
 ​
