@@ -29,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
@@ -92,6 +93,25 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
             Region region = regionMapper.selectById(serve.getRegionId());
             serve.setCityCode(region.getCityCode());
             baseMapper.insert(serve);
+        }
+    }
+
+    /**
+     * 区域服务价格修改
+     * @param id id
+     */
+    @Override
+    public void updatePrice(Long id, BigDecimal price) {
+        Serve serve = serveMapper.selectById(id);
+        if (ObjectUtil.equals(serve.getSaleStatus(), FoundationStatusEnum.ENABLE.getStatus())){
+            throw new ForbiddenOperationException("请先禁用该服务");
+        }
+        LambdaUpdateWrapper<Serve> updateWrapper = Wrappers.lambdaUpdate(Serve.class)
+                .eq(Serve::getId, id);
+        serve.setPrice(price);
+        int update = baseMapper.update(serve, updateWrapper);
+        if (update < 1){
+            throw new ForbiddenOperationException("价格修改失败，请稍后重试");
         }
     }
 

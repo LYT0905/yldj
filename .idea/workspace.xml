@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/operation/ServeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/operation/ServeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/ServeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/ServeService.java" afterDir="false" />
@@ -130,7 +128,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712488899955</updated>
       <workItem from="1712488901631" duration="10117000" />
-      <workItem from="1712550320109" duration="1388000" />
+      <workItem from="1712550320109" duration="2003000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -140,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712499295271</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feature: foundations-区域服务下架">
+      <option name="closed" value="true" />
+      <created>1712551771837</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712551771837</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +154,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init: 初始化项目" />
-    <option name="LAST_COMMIT_MESSAGE" value="init: 初始化项目" />
+    <MESSAGE value="feature: foundations-区域服务下架" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: foundations-区域服务下架" />
   </component>
 </project>
