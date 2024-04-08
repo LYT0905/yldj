@@ -56,4 +56,16 @@ public interface ServeService extends IService<Serve> {
      * @param id id
      */
     void deleteById(Long id);
+
+    /**
+     * 设置服务为热门
+     * @param id id
+     */
+    void onHot(Long id);
+
+    /**
+     * 设置服务为非热门
+     * @param id
+     */
+    void offHot(Long id);
 }

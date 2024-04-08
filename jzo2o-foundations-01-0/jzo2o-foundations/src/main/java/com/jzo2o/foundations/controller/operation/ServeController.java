@@ -84,4 +84,22 @@ public class ServeController {
     public void delete(@PathVariable Long id){
         serveService.deleteById(id);
     }
+
+    /**
+     * 设置服务为热门
+     * @param id id
+     */
+    @PutMapping("/onHot/{id}")
+    public void onHot(@PathVariable Long id){
+        serveService.onHot(id);
+    }
+
+    /**
+     * 设置服务为非热门
+     * @param id
+     */
+    @PutMapping("/offHot/{id}")
+    public void offHot(@PathVariable Long id){
+        serveService.offHot(id);
+    }
 }

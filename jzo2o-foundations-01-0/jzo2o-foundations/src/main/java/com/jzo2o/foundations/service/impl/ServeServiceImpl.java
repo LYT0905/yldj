@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jzo2o.common.expcetions.CommonException;
 import com.jzo2o.common.expcetions.ForbiddenOperationException;
 import com.jzo2o.common.model.PageResult;
+import com.jzo2o.foundations.enums.FoundationHotStatusEnum;
 import com.jzo2o.foundations.enums.FoundationStatusEnum;
 import com.jzo2o.foundations.mapper.RegionMapper;
 import com.jzo2o.foundations.mapper.ServeItemMapper;
@@ -103,6 +104,9 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
     @Override
     public void updatePrice(Long id, BigDecimal price) {
         Serve serve = serveMapper.selectById(id);
+        if (ObjectUtil.isNull(serve)){
+            throw new ForbiddenOperationException("未找到该服务，请稍后重试");
+        }
         if (ObjectUtil.equals(serve.getSaleStatus(), FoundationStatusEnum.ENABLE.getStatus())){
             throw new ForbiddenOperationException("请先禁用该服务");
         }
@@ -193,5 +197,55 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
             throw new ForbiddenOperationException("该服务启用，请先禁用");
         }
         baseMapper.deleteById(id);
+    }
+
+    /**
+     * 设置服务为热门
+     * @param id id
+     */
+    @Override
+    public void onHot(Long id) {
+        Serve serve = serveMapper.selectById(id);
+        if (ObjectUtil.isNull(serve)){
+            throw new ForbiddenOperationException("未找到该服务，请稍后重试");
+        }
+        if (ObjectUtil.equals(serve.getSaleStatus(), FoundationStatusEnum.ENABLE.getStatus())){
+            throw new ForbiddenOperationException("请先禁用该服务");
+        }
+        if (ObjectUtil.equals(serve.getIsHot(), FoundationHotStatusEnum.IS_HOT.getStatus())){
+            throw new ForbiddenOperationException("该服务已为热门服务");
+        }
+        LambdaUpdateWrapper<Serve> updateWrapper = Wrappers.lambdaUpdate(Serve.class)
+                .eq(Serve::getId, id);
+        serve.setIsHot(FoundationHotStatusEnum.IS_HOT.getStatus());
+        int update = baseMapper.update(serve, updateWrapper);
+        if (update < 1){
+            throw new CommonException("下架服务失败");
+        }
+    }
+
+    /**
+     * 设置服务为非热门
+     * @param id
+     */
+    @Override
+    public void offHot(Long id) {
+        Serve serve = serveMapper.selectById(id);
+        if (ObjectUtil.isNull(serve)){
+            throw new ForbiddenOperationException("未找到该服务，请稍后重试");
+        }
+        if (ObjectUtil.equals(serve.getSaleStatus(), FoundationStatusEnum.ENABLE.getStatus())){
+            throw new ForbiddenOperationException("请先禁用该服务");
+        }
+        if (ObjectUtil.equals(serve.getIsHot(), FoundationHotStatusEnum.NOT_HOT.getStatus())){
+            throw new ForbiddenOperationException("该服务已为非热门服务");
+        }
+        LambdaUpdateWrapper<Serve> updateWrapper = Wrappers.lambdaUpdate(Serve.class)
+                .eq(Serve::getId, id);
+        serve.setIsHot(FoundationHotStatusEnum.NOT_HOT.getStatus());
+        int update = baseMapper.update(serve, updateWrapper);
+        if (update < 1){
+            throw new CommonException("下架服务失败");
+        }
     }
 }
