@@ -39,6 +39,12 @@ public interface ServeService extends IService<Serve> {
     void onSale(Long id);
 
     /**
+     * 区域服务下架
+     * @param id id
+     */
+    void offSale(Long id);
+
+    /**
      * 区域服务删除
      * @param id id
      */

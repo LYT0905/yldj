@@ -57,6 +57,15 @@ public class ServeController {
     }
 
     /**
+     * 区域服务下架
+     * @param id id
+     */
+    @PutMapping("/offSale/{id}")
+    public void offSale(@PathVariable Long id){
+        serveService.offSale(id);
+    }
+
+    /**
      * 区域服务删除
      * @param id id
      */

@@ -111,11 +111,6 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
         if (ObjectUtil.isNull(serve)){
             throw new ForbiddenOperationException("未找到该服务，请稍后重试");
         }
-        Long regionId = serve.getRegionId();
-        Region region = regionMapper.selectById(regionId);
-        if (ObjectUtil.isNull(region)){
-            throw new ForbiddenOperationException("未找到该地区，请稍后重试");
-        }
         Integer saleStatus = serve.getSaleStatus();
         if (ObjectUtil.equals(saleStatus, FoundationStatusEnum.ENABLE.getStatus())){
             throw new ForbiddenOperationException("该服务已经启用");
@@ -132,6 +127,33 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
         int update = baseMapper.update(serve, updateWrapper);
         if (update < 1){
             throw new CommonException("启动服务失败");
+        }
+    }
+
+    /**
+     * 区域服务下架
+     * @param id id
+     */
+    @Override
+    @Transactional
+    public void offSale(Long id) {
+        Serve serve = serveMapper.selectById(id);
+        if (ObjectUtil.isNull(serve)){
+            throw new ForbiddenOperationException("未找到该服务，请稍后重试");
+        }
+        if (ObjectUtil.notEqual(serve.getSaleStatus(), FoundationStatusEnum.ENABLE.getStatus())){
+            throw new ForbiddenOperationException("请先启用该服务");
+        }
+        ServeItem serveItem = serveItemMapper.selectById(serve.getServeItemId());
+        if (ObjectUtil.notEqual(serveItem.getActiveStatus(), FoundationStatusEnum.ENABLE.getStatus())){
+            throw new ForbiddenOperationException("服务项为启用状态方可下架");
+        }
+        LambdaUpdateWrapper<Serve> updateWrapper = Wrappers.lambdaUpdate(Serve.class)
+                .eq(Serve::getId, id);
+        serve.setSaleStatus(FoundationStatusEnum.DISABLE.getStatus());
+        int update = baseMapper.update(serve, updateWrapper);
+        if (update < 1){
+            throw new CommonException("下架服务失败");
         }
     }
 
