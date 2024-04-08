@@ -4,7 +4,7 @@
 云岚到家项目是一个家政服务o2o平台，互联网+家政是继打车、外卖后的又一个风口，创业者众多，比如：58到家，天鹅到家等，o2o（Online To Offline）是将线下商务的机会与互联网的技术结合在一起，让互联网成为线下交易的前台，同时起到推广和成交的作用。
 
 二.项目业务模块
-[!imagehttps://mx67xggunk5.feishu.cn/6c606db2-aeba-4e80-9177-ece215621f6c]
+[!https://mx67xggunk5.feishu.cn/6c606db2-aeba-4e80-9177-ece215621f6c]
 
 三.项目架构
 项目是基于Spring Cloud Alibaba框架构建的微服务项目，采用前后端分离模式进行开发，系统架构图如下：
