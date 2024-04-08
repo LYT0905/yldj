@@ -29,5 +29,5 @@
 - 缓存：服务信息、订单信息、服务单信息等。
 
 项目核心交互流程如下图：
-[!img](https://mx67xggunk5.feishu.cn/6eb52f0d-94b3-46a7-be6a-0890f4ad627c)
+[!img](blob:https://mx67xggunk5.feishu.cn/6eb52f0d-94b3-46a7-be6a-0890f4ad627c)
 ​
