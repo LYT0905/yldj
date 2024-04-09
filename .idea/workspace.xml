@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/RegionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/RegionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeItemServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +132,7 @@
       <workItem from="1712488901631" duration="10117000" />
       <workItem from="1712550320109" duration="3034000" />
       <workItem from="1712581932857" duration="1233000" />
-      <workItem from="1712636317701" duration="1494000" />
+      <workItem from="1712636317701" duration="3050000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -182,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712587165407</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="optimize: foundations-区域启用和禁用功能完善">
+      <option name="closed" value="true" />
+      <created>1712637915394</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712637915394</updated>
+    </task>
+    <task id="LOCAL-00008" summary="init">
+      <option name="closed" value="true" />
+      <created>1712637936845</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712637936845</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +211,8 @@
     <MESSAGE value="feature: foundations-区域服务价格修改" />
     <MESSAGE value="feature: foundations-区域服务热门修改" />
     <MESSAGE value="init: 照片" />
-    <option name="LAST_COMMIT_MESSAGE" value="init: 照片" />
+    <MESSAGE value="optimize: foundations-区域启用和禁用功能完善" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
