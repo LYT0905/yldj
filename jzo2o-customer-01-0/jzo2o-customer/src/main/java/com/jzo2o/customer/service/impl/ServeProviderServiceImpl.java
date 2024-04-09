@@ -2,7 +2,9 @@ package com.jzo2o.customer.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.ObjectUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -10,11 +12,14 @@ import com.jzo2o.api.customer.dto.request.ServerProviderUpdateStatusReqDTO;
 import com.jzo2o.api.customer.dto.response.ServeProviderResDTO;
 import com.jzo2o.api.customer.dto.response.ServeProviderSimpleResDTO;
 import com.jzo2o.api.publics.SmsCodeApi;
+import com.jzo2o.api.publics.dto.response.BooleanResDTO;
 import com.jzo2o.common.constants.CommonStatusConstants;
 import com.jzo2o.common.constants.UserType;
 import com.jzo2o.common.enums.EnableStatusEnum;
 import com.jzo2o.common.enums.SmsBussinessTypeEnum;
 import com.jzo2o.common.expcetions.BadRequestException;
+import com.jzo2o.common.expcetions.CommonException;
+import com.jzo2o.common.expcetions.ForbiddenOperationException;
 import com.jzo2o.common.model.PageResult;
 import com.jzo2o.common.utils.BeanUtils;
 import com.jzo2o.common.utils.CollUtils;
@@ -35,6 +40,7 @@ import com.jzo2o.customer.model.dto.response.ServeProviderListResDTO;
 import com.jzo2o.customer.service.*;
 import com.jzo2o.mvc.utils.UserContext;
 import com.jzo2o.mysql.utils.PageHelperUtils;
+import javassist.compiler.CompileError;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -149,6 +155,49 @@ public class ServeProviderServiceImpl extends ServiceImpl<ServeProviderMapper, S
         serveProviderSettingsService.add(serveProvider.getId(), type);
 
         return serveProvider;
+    }
+
+    /**
+     * 机构注册
+     * @param institutionRegisterReqDTO 请求参数（手机号，验证码，密码）
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void institutionRegister(InstitutionRegisterReqDTO institutionRegisterReqDTO) {
+        if (ObjectUtil.isNull(institutionRegisterReqDTO.getPhone()) ||
+                ObjectUtil.isNull(institutionRegisterReqDTO.getPassword()) ||
+                ObjectUtil.isNull(institutionRegisterReqDTO.getVerifyCode())){
+            throw new ForbiddenOperationException("请正确填写参数");
+        }
+        LambdaQueryWrapper<ServeProvider> eq = Wrappers.lambdaQuery(ServeProvider.class)
+                .eq(ServeProvider::getPhone, institutionRegisterReqDTO.getPhone());
+        ServeProvider serveProvider = baseMapper.selectOne(eq);
+        if (ObjectUtil.isNotNull(serveProvider)){
+            if (ObjectUtil.equals(serveProvider.getType(), UserType.WORKER)){
+                throw new BadRequestException("该账号已被服务人员注册");
+            }else {
+                throw new BadRequestException("该账号已被机构注册");
+            }
+        }
+        // 调用public校验验证码
+        BooleanResDTO verify = smsCodeApi.verify(institutionRegisterReqDTO.getPhone(),
+                SmsBussinessTypeEnum.INSTITION_REGISTER, institutionRegisterReqDTO.getVerifyCode());
+        if (BooleanUtil.isFalse(verify.getIsSuccess())){
+            throw new ForbiddenOperationException("验证码填写错误，请重试");
+        }
+        String passwordEncode = passwordEncoder.encode(institutionRegisterReqDTO.getPassword());
+        ServeProvider institutionServeProvider = new ServeProvider()
+                .setPhone(institutionRegisterReqDTO.getPhone())
+                .setType(UserType.INSTITUTION)
+                .setStatus(CommonStatusConstants.USER_STATUS_NORMAL)
+                .setCode(IdUtils.getSnowflakeNextIdStr())
+                .setPassword(passwordEncode);
+        int insert = baseMapper.insert(institutionServeProvider);
+        if (insert < 1){
+            throw new CommonException("注册失败");
+        }
+        //新增服务人员/机构配置信息同步表信息,方便后期对配置项进行配置
+        serveProviderSettingsService.add(institutionServeProvider.getId(), UserType.INSTITUTION);
     }
 
     @Override

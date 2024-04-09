@@ -4,166 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="optimize: foundations-禁用服务项功能完善">
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/jzo2o-customer-startup.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/CustomerApplicaiton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/client/EvaluationHttpClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/config/JwtConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/constants/EsIndexConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/constants/RedisConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/agency/InstitutionStaffController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/agency/ServeProviderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/agency/ServeProviderSettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/agency/ServeSkillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/consumer/CommonUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/consumer/EvaluationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/inner/InnerCommonUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/inner/InnerEvaluationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/inner/InnerInstitutionStaffController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/inner/InnerServeProviderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/inner/InnerServeSkillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/open/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/AgencyCertificationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/BankAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/CommonUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/EvaluationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/InstitutionStaffController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/ServeProviderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/WorkerCertificationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/EvaluationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/ServeProviderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/ServeProviderSettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/ServeSkillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/enums/CertificationStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/handler/ServeProviderHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/handler/XxlJobHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/listener/EvaluationListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/AddressBookMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/AgencyCertificationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/CommonUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/InstitutionStaffMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/ServeProviderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/ServeProviderSettingsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/ServeProviderSyncMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/ServeSkillMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/WorkerCertificationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/AddressBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/AgencyCertification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/CommonUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/InstitutionStaff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeProviderInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeProviderSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeProviderSync.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeSkill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/WorkerCertification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/AgencyCertificationUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/EvaluationSubmitDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/RelationScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/ScoreStatisticsMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/ServeSkillSimpleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/WorkerCertificationUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/AddressBookPageQueryReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/AddressBookUpsertReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/AgencyCertificationAuditAddReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/AgencyCertificationAuditPageQueryReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/AuditReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/BankAccountUpsertReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/CertificationAuditReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/EvaluationPageByTargetReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/InstitutionRegisterReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/InstitutionResetPasswordReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/InstitutionStaffUpsertReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/LikeOrCancelReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/LoginForCustomerReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/LoginForWorkReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/ServePickUpReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/ServeProviderPageQueryReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/ServeScopeSetReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/ServeSkillAddReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/SmsCodeSendReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/WorkerCertificationAuditAddReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/request/WorkerCertificationAuditPageQueryReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/AgencyCertificationAuditResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/AgencyCertificationResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/AllEvaluationSystemInfoResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/BankAccountResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/BooleanResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/CertificationStatusDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/CityCodeResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/EvaluationAndOrdersResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/EvaluationResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/EvaluationSystemInfoResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/EvaluationTokenDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/InstitutionStaffSimpleResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/LoginResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/RejectReasonResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeProviderBasicInformationResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeProviderInfoResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeProviderListResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeProviderSettingsGetResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeSettingsStatusResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeSkillCategoryResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeSkillItemResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/ServeSkillTypeResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/WorkerCertificationAuditResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/WorkerCertificationResDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/properties/ApplicationProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/properties/EvaluationProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/properties/EvaluationTargetProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/EvaluationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IAddressBookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IAgencyCertificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/ICommonUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IInstitutionStaffService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/ILoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderSettingsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderSyncService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeSkillService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IWorkerCertificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AgencyCertificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/CommonUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/EvaluationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ILoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/InstitutionStaffServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderSettingsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderSyncServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeSkillServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/WorkerCertificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/bootstrap-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/bootstrap-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/bootstrap-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/AddressBookMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/AgencyCertificationAuditMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/AgencyCertificationMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/BankAccountMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/CommonUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/InstitutionStaffMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/ServeProviderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/ServeProviderSettingsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/ServeProviderSyncMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/ServeSkillMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/WorkerCertificationAuditMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/resources/mapper/WorkerCertificationMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/handler/XxlJobHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/service/EvaluationServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/service/IBankAccountServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/service/IServeProviderServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/service/ServeSkillServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/test/EsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/test/java/com/jzo2o/customer/test/JwtTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/open/ServeProvideController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/ServeProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/operation/ServeProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/ServeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="myBatis-mapper" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -197,6 +46,9 @@
         <option name="userSettingsFile" value="C:\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2elpDRAay1UgkaS4mqd1NCOyQ4K" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -255,7 +107,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PublicsApplication">
+  <component name="RunManager" selected="Spring Boot.CustomerApplicaiton">
     <configuration name="CustomerApplicaiton" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="jzo2o-customer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jzo2o.customer.CustomerApplicaiton" />
@@ -297,7 +149,7 @@
       <workItem from="1712550320109" duration="3034000" />
       <workItem from="1712581932857" duration="1233000" />
       <workItem from="1712636317701" duration="3504000" />
-      <workItem from="1712654665301" duration="7229000" />
+      <workItem from="1712654665301" duration="9978000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -371,7 +223,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712639586809</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="init: customer-初始化">
+      <option name="closed" value="true" />
+      <created>1712667483669</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712667483669</updated>
+    </task>
+    <task id="LOCAL-00011" summary="init: customer-初始化">
+      <option name="closed" value="true" />
+      <created>1712667553921</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712667553921</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +255,7 @@
     <MESSAGE value="optimize: foundations-区域启用和禁用功能完善" />
     <MESSAGE value="init" />
     <MESSAGE value="optimize: foundations-禁用服务项功能完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize: foundations-禁用服务项功能完善" />
+    <MESSAGE value="init: customer-初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="init: customer-初始化" />
   </component>
 </project>

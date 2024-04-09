@@ -4,6 +4,7 @@ package com.jzo2o.customer.controller.operation;
 import com.jzo2o.api.customer.dto.request.ServerProviderUpdateStatusReqDTO;
 import com.jzo2o.api.customer.dto.response.ServeProviderResDTO;
 import com.jzo2o.common.model.PageResult;
+import com.jzo2o.customer.model.dto.request.InstitutionRegisterReqDTO;
 import com.jzo2o.customer.model.dto.request.ServeProviderPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.response.ServeProviderBasicInformationResDTO;
 import com.jzo2o.customer.model.dto.response.ServeProviderListResDTO;
