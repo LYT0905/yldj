@@ -127,4 +127,10 @@ public interface IServeProviderService extends IService<ServeProvider> {
      * @param institutionRegisterReqDTO 请求参数（手机号，验证码，密码）
      */
     void institutionRegister(InstitutionRegisterReqDTO institutionRegisterReqDTO);
+
+    /**
+     * 重置密码
+     * @param institutionRegisterReqDTO 请求参数（手机号，验证码，密码）
+     */
+    void resetPassword(InstitutionRegisterReqDTO institutionRegisterReqDTO);
 }

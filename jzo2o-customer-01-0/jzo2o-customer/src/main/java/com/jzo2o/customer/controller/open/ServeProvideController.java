@@ -28,6 +28,6 @@ public class ServeProvideController {
     @PostMapping("/institution/register")
     public Result<Object> institutionRegister(@RequestBody InstitutionRegisterReqDTO institutionRegisterReqDTO){
         serveProviderService.institutionRegister(institutionRegisterReqDTO);
-        return Result.ok(null);
+        return Result.ok("注册成功");
     }
 }

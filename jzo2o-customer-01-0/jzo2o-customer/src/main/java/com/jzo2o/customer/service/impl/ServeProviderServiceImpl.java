@@ -167,7 +167,7 @@ public class ServeProviderServiceImpl extends ServiceImpl<ServeProviderMapper, S
         if (ObjectUtil.isNull(institutionRegisterReqDTO.getPhone()) ||
                 ObjectUtil.isNull(institutionRegisterReqDTO.getPassword()) ||
                 ObjectUtil.isNull(institutionRegisterReqDTO.getVerifyCode())){
-            throw new ForbiddenOperationException("请正确填写参数");
+            throw new ForbiddenOperationException("请输入合法参数");
         }
         LambdaQueryWrapper<ServeProvider> eq = Wrappers.lambdaQuery(ServeProvider.class)
                 .eq(ServeProvider::getPhone, institutionRegisterReqDTO.getPhone());
@@ -321,5 +321,42 @@ public class ServeProviderServiceImpl extends ServiceImpl<ServeProviderMapper, S
     public ServeProviderInfoResDTO currentUserInfo() {
         ServeProvider serveProvider = baseMapper.selectById(UserContext.currentUserId());
         return BeanUtils.toBean(serveProvider,ServeProviderInfoResDTO.class);
+    }
+
+    /**
+     * 重置密码
+     * @param institutionRegisterReqDTO 请求参数（手机号，验证码，密码）
+     */
+    @Override
+    public void resetPassword(InstitutionRegisterReqDTO institutionRegisterReqDTO) {
+        if (ObjectUtil.isNull(institutionRegisterReqDTO.getPhone()) ||
+                ObjectUtil.isNull(institutionRegisterReqDTO.getPassword()) ||
+                ObjectUtil.isNull(institutionRegisterReqDTO.getVerifyCode())){
+            throw new ForbiddenOperationException("请输入合法参数");
+        }
+        LambdaQueryWrapper<ServeProvider> eq = Wrappers.lambdaQuery(ServeProvider.class)
+                .eq(ServeProvider::getPhone, institutionRegisterReqDTO.getPhone());
+        ServeProvider serveProvider = baseMapper.selectOne(eq);
+        if (ObjectUtil.isNull(serveProvider)){
+            throw new ForbiddenOperationException("请重新输入手机号");
+        }
+        if (ObjectUtil.notEqual(serveProvider.getType(), UserType.INSTITUTION)){
+            throw new ForbiddenOperationException("请输入合法手机号");
+        }
+        BooleanResDTO verify = smsCodeApi.verify(institutionRegisterReqDTO.getPhone(),
+                SmsBussinessTypeEnum.INSTITUTION_RESET_PASSWORD, institutionRegisterReqDTO.getVerifyCode());
+        if (BooleanUtil.isFalse(verify.getIsSuccess())){
+            throw new ForbiddenOperationException("验证码错误，请重新输入");
+        }
+        LambdaUpdateWrapper<ServeProvider> updateWrapper = Wrappers.lambdaUpdate(ServeProvider.class)
+                .eq(ServeProvider::getPhone, institutionRegisterReqDTO.getPhone())
+                .eq(ServeProvider::getType, UserType.INSTITUTION);
+        String encodePassword = passwordEncoder.encode(institutionRegisterReqDTO.getPassword());
+        ServeProvider updateServeProvide = new ServeProvider()
+                .setPassword(encodePassword);
+        int update = baseMapper.update(updateServeProvide, updateWrapper);
+        if (update < 1){
+            throw new CommonException("重置密码失败");
+        }
     }
 }
