@@ -87,7 +87,7 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
                     .eq(Serve::getServeItemId, serveUpsertReqDTO.getServeItemId());
             List<Serve> serves = baseMapper.selectList(queryWrapper);
             if (CollectionUtil.isNotEmpty(serves)){
-                throw new ForbiddenOperationException(serveItem.getName()+"服务已存在");
+                throw new ForbiddenOperationException(serveItem.getName() + "服务已存在");
             }
             // 新增
             Serve serve = BeanUtil.toBean(serveUpsertReqDTO, Serve.class);
@@ -99,7 +99,8 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
 
     /**
      * 区域服务价格修改
-     * @param id id
+     * @param id 区域服务id
+     * @param price 修改的价格
      */
     @Override
     public void updatePrice(Long id, BigDecimal price) {
@@ -136,7 +137,7 @@ public class ServeServiceImpl extends ServiceImpl<ServeMapper, Serve> implements
             throw new ForbiddenOperationException("未找到该服务，请稍后重试");
         }
         Integer saleStatus = serve.getSaleStatus();
-        if (ObjectUtil.equals(saleStatus, FoundationStatusEnum.ENABLE.getStatus())){
+        if (ObjectUtil.notEqual(saleStatus, FoundationStatusEnum.ENABLE.getStatus())){
             throw new ForbiddenOperationException("该服务已经启用");
         }
         Long serveItemId = serve.getServeItemId();

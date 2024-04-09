@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/jzo2o-api-01-0/jzo2o-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jzo2o-framework/jzo2o-canal-sync/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jzo2o-framework/jzo2o-common/src/main/java" charset="UTF-8" />
