@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/consumer/AddressBookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/enums/AddressBookStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/agency/ServeProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/agency/ServeProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/open/ServeProvideController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/open/ServeProvideController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IServeProviderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/ServeProviderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IAddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IAddressBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,37 +59,38 @@
     <option name="showMembers" value="true" />
     <option name="showModules" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/27132/Java/yldj&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;6bddac18fa187dba2c6c9c4e226ccbf4&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/27132/Java/yldj",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "a36bda7579c0f14a942223c32191ec96",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -146,7 +148,9 @@
       <workItem from="1712550320109" duration="3034000" />
       <workItem from="1712581932857" duration="1233000" />
       <workItem from="1712636317701" duration="3504000" />
-      <workItem from="1712654665301" duration="11993000" />
+      <workItem from="1712654665301" duration="12222000" />
+      <workItem from="1712752773732" duration="613000" />
+      <workItem from="1712753401308" duration="3944000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -252,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712670980392</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feature: customer-机构端重置密码功能">
+      <option name="closed" value="true" />
+      <created>1712672239181</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712672239181</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +282,28 @@
     <MESSAGE value="optimize: foundations-禁用服务项功能完善" />
     <MESSAGE value="init: customer-初始化" />
     <MESSAGE value="feature: customer-机构端注册功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-机构端注册功能" />
+    <MESSAGE value="feature: customer-机构端重置密码功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-机构端重置密码功能" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

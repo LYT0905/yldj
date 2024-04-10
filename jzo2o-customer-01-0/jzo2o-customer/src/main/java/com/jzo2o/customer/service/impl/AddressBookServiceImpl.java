@@ -15,6 +15,7 @@ import com.jzo2o.common.utils.BeanUtils;
 import com.jzo2o.common.utils.CollUtils;
 import com.jzo2o.common.utils.NumberUtils;
 import com.jzo2o.common.utils.StringUtils;
+import com.jzo2o.customer.enums.AddressBookStatusEnum;
 import com.jzo2o.customer.mapper.AddressBookMapper;
 import com.jzo2o.customer.model.domain.AddressBook;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
@@ -38,8 +39,8 @@ import java.util.List;
  * @since 2023-07-06
  */
 @Service
+@Resource
 public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, AddressBook> implements IAddressBookService {
-
     @Override
     public List<AddressBookResDTO> getByUserIdAndCity(Long userId, String city) {
 
@@ -51,5 +52,52 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
             return new ArrayList<>();
         }
         return BeanUtils.copyToList(addressBooks, AddressBookResDTO.class);
+    }
+
+    /**
+     * 新增地址簿
+     * @param addressBookUpsertReqDTO 请求参数
+     */
+    @Override
+    public void saveAddressBook(AddressBookUpsertReqDTO addressBookUpsertReqDTO) {
+        LambdaQueryWrapper<AddressBook> eq = Wrappers.lambdaQuery(AddressBook.class)
+                .eq(AddressBook::getIsDefault, AddressBookStatusEnum.IS_DEFAULT.getStatus())
+                .eq(AddressBook::getName, addressBookUpsertReqDTO.getName())
+                .eq(AddressBook::getPhone, addressBookUpsertReqDTO.getPhone());
+        List<AddressBook> addressBooks = baseMapper.selectList(eq);
+        // 经度,纬度
+        String location = addressBookUpsertReqDTO.getLocation();
+        List<String> split = StringUtils.split(location, ",");
+        AddressBook addressBook = new AddressBook()
+                .setAddress(addressBookUpsertReqDTO.getAddress())
+                .setUserId(UserContext.currentUserId())
+                .setCity(addressBookUpsertReqDTO.getCity())
+                .setCounty(addressBookUpsertReqDTO.getCounty())
+                .setName(addressBookUpsertReqDTO.getName())
+                .setLon(Double.valueOf((split.get(0))))
+                .setLat(Double.valueOf(split.get(1)))
+                .setPhone(addressBookUpsertReqDTO.getPhone())
+                .setProvince(addressBookUpsertReqDTO.getProvince())
+                .setIsDefault(addressBookUpsertReqDTO.getIsDefault());
+        if (ObjectUtil.equals(addressBookUpsertReqDTO.getIsDefault(), AddressBookStatusEnum.IS_DEFAULT.getStatus())){
+            if (ObjectUtil.isNotNull(addressBooks)){
+                for (AddressBook book : addressBooks) {
+                    if (ObjectUtil.equals(book.getIsDefault(), AddressBookStatusEnum.IS_DEFAULT.getStatus())){
+                        book.setIsDefault(AddressBookStatusEnum.IS_NOT_DEFAULT.getStatus());
+                        LambdaUpdateWrapper<AddressBook> updateWrapper = Wrappers.lambdaUpdate(AddressBook.class)
+                                .eq(AddressBook::getName, book.getName())
+                                .eq(AddressBook::getPhone, book.getPhone());
+                        baseMapper.update(book, updateWrapper);
+                        break;
+                    }
+                }
+            }
+        }
+        if (ObjectUtil.isNull(addressBooks)){
+            addressBook.setIsDefault(AddressBookStatusEnum.IS_DEFAULT.getStatus());
+            baseMapper.insert(addressBook);
+            return;
+        }
+        baseMapper.insert(addressBook);
     }
 }
