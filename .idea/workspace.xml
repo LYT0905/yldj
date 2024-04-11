@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/enums/AddressBookIsDeletedStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/dto/response/AddressBookPageQueryRespDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/consumer/AddressBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/consumer/AddressBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IAddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IAddressBookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +157,7 @@
       <workItem from="1712654665301" duration="12222000" />
       <workItem from="1712752773732" duration="613000" />
       <workItem from="1712753401308" duration="4067000" />
-      <workItem from="1712809474177" duration="1033000" />
+      <workItem from="1712809474177" duration="4717000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -275,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712760758358</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="optimize: customer-优化添加地址功能">
+      <option name="closed" value="true" />
+      <created>1712810696490</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712810696490</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +307,18 @@
     <MESSAGE value="feature: customer-机构端注册功能" />
     <MESSAGE value="feature: customer-机构端重置密码功能" />
     <MESSAGE value="feature: customer-添加地址" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-添加地址" />
+    <MESSAGE value="optimize: customer-优化添加地址功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize: customer-优化添加地址功能" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-framework/jzo2o-mvc/src/main/java/com/jzo2o/mvc/interceptor/UserContextInteceptor.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

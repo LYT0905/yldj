@@ -10,18 +10,22 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jzo2o.api.customer.dto.response.AddressBookResDTO;
 import com.jzo2o.api.publics.MapApi;
 import com.jzo2o.api.publics.dto.response.LocationResDTO;
+import com.jzo2o.common.expcetions.ForbiddenOperationException;
 import com.jzo2o.common.model.PageResult;
 import com.jzo2o.common.utils.BeanUtils;
 import com.jzo2o.common.utils.CollUtils;
 import com.jzo2o.common.utils.NumberUtils;
 import com.jzo2o.common.utils.StringUtils;
+import com.jzo2o.customer.enums.AddressBookIsDeletedStatusEnum;
 import com.jzo2o.customer.enums.AddressBookStatusEnum;
 import com.jzo2o.customer.mapper.AddressBookMapper;
 import com.jzo2o.customer.model.domain.AddressBook;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
+import com.jzo2o.customer.model.dto.response.AddressBookPageQueryRespDTO;
 import com.jzo2o.customer.service.IAddressBookService;
 import com.jzo2o.mvc.utils.UserContext;
+import com.jzo2o.mysql.utils.PageHelperUtils;
 import com.jzo2o.mysql.utils.PageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,6 +67,9 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
         // 经度,纬度
         String location = addressBookUpsertReqDTO.getLocation();
         List<String> split = StringUtils.split(location, ",");
+        if (split.size() != 2){
+            throw new ForbiddenOperationException("请输入合法地址");
+        }
         AddressBook addressBook = new AddressBook()
                 .setAddress(addressBookUpsertReqDTO.getAddress())
                 .setUserId(UserContext.currentUserId())
@@ -76,6 +83,21 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
                 .setIsDefault(addressBookUpsertReqDTO.getIsDefault());
         updateExistingDefaultAddressIfNecessary(addressBook);
         baseMapper.insert(addressBook);
+    }
+
+    /**
+     * 地址薄分页查询
+     * @param addressBookPageQueryReqDTO 请求参数
+     * @return 返回结果
+     */
+    @Override
+    public PageResult<AddressBookPageQueryRespDTO> pageQuery(AddressBookPageQueryReqDTO addressBookPageQueryReqDTO) {
+        Page<AddressBook> addressBookPage = PageUtils.parsePageQuery(addressBookPageQueryReqDTO, AddressBook.class);
+        LambdaQueryWrapper<AddressBook> queryWrapper = Wrappers.lambdaQuery(AddressBook.class)
+                .eq(AddressBook::getUserId, UserContext.currentUserId())
+                .eq(AddressBook::getIsDeleted, AddressBookIsDeletedStatusEnum.IS_NOT_DELETED.getStatus());
+        Page<AddressBook> page = baseMapper.selectPage(addressBookPage, queryWrapper);
+        return PageUtils.toPage(page, AddressBookPageQueryRespDTO.class);
     }
 
     /**
