@@ -8,6 +8,7 @@ package com.jzo2o.customer.controller.consumer;
 import com.jzo2o.common.model.PageResult;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
+import com.jzo2o.customer.model.dto.response.AddressBookDefaultAddressRespDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookPageQueryRespDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookDetailRespDTO;
 import com.jzo2o.customer.service.IAddressBookService;
@@ -92,5 +93,12 @@ public class AddressBookController {
         return Result.ok("修改成功");
     }
 
-
+    /**
+     * 获取默认地址
+     * @return 响应结果
+     */
+    @GetMapping("/defaultAddress")
+    public AddressBookDefaultAddressRespDTO defaultAddress(){
+        return addressBookService.getDefaultAddress();
+    }
 }

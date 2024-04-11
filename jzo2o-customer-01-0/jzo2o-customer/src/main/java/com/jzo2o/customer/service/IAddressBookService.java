@@ -6,6 +6,7 @@ import com.jzo2o.customer.model.domain.AddressBook;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jzo2o.customer.model.dto.response.AddressBookDefaultAddressRespDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookPageQueryRespDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookDetailRespDTO;
 
@@ -68,4 +69,10 @@ public interface IAddressBookService extends IService<AddressBook> {
      * @param flag 修改参数（0 非默认地址，1 默认地址）
      */
     void updateDefaultAddress(Long id, Long flag);
+
+    /**
+     * 获取默认地址
+     * @return 响应结果
+     */
+    AddressBookDefaultAddressRespDTO getDefaultAddress();
 }

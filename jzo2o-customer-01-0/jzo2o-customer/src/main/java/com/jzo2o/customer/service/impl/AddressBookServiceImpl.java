@@ -19,6 +19,7 @@ import com.jzo2o.customer.mapper.AddressBookMapper;
 import com.jzo2o.customer.model.domain.AddressBook;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
+import com.jzo2o.customer.model.dto.response.AddressBookDefaultAddressRespDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookPageQueryRespDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookDetailRespDTO;
 import com.jzo2o.customer.service.IAddressBookService;
@@ -181,6 +182,19 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
                 baseMapper.updateById(existingAddressBook);
             }
         }
+    }
+
+    /**
+     * 获取默认地址
+     * @return 响应结果
+     */
+    @Override
+    public AddressBookDefaultAddressRespDTO getDefaultAddress() {
+        LambdaQueryWrapper<AddressBook> queryWrapper = Wrappers.lambdaQuery(AddressBook.class)
+                .eq(AddressBook::getUserId, UserContext.currentUserId())
+                .eq(AddressBook::getIsDefault, AddressBookStatusEnum.IS_DEFAULT.getStatus());
+        AddressBook addressBook = baseMapper.selectOne(queryWrapper);
+        return addressBook == null ? null : BeanUtils.toBean(addressBook, AddressBookDefaultAddressRespDTO.class);
     }
 
     /**
