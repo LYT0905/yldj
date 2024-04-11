@@ -60,11 +60,6 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
      */
     @Override
     public void saveAddressBook(AddressBookUpsertReqDTO addressBookUpsertReqDTO) {
-        LambdaQueryWrapper<AddressBook> eq = Wrappers.lambdaQuery(AddressBook.class)
-                .eq(AddressBook::getIsDefault, AddressBookStatusEnum.IS_DEFAULT.getStatus())
-                .eq(AddressBook::getName, addressBookUpsertReqDTO.getName())
-                .eq(AddressBook::getPhone, addressBookUpsertReqDTO.getPhone());
-        List<AddressBook> addressBooks = baseMapper.selectList(eq);
         // 经度,纬度
         String location = addressBookUpsertReqDTO.getLocation();
         List<String> split = StringUtils.split(location, ",");
@@ -79,25 +74,28 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
                 .setPhone(addressBookUpsertReqDTO.getPhone())
                 .setProvince(addressBookUpsertReqDTO.getProvince())
                 .setIsDefault(addressBookUpsertReqDTO.getIsDefault());
-        if (ObjectUtil.equals(addressBookUpsertReqDTO.getIsDefault(), AddressBookStatusEnum.IS_DEFAULT.getStatus())){
-            if (ObjectUtil.isNotNull(addressBooks)){
-                for (AddressBook book : addressBooks) {
-                    if (ObjectUtil.equals(book.getIsDefault(), AddressBookStatusEnum.IS_DEFAULT.getStatus())){
-                        book.setIsDefault(AddressBookStatusEnum.IS_NOT_DEFAULT.getStatus());
-                        LambdaUpdateWrapper<AddressBook> updateWrapper = Wrappers.lambdaUpdate(AddressBook.class)
-                                .eq(AddressBook::getName, book.getName())
-                                .eq(AddressBook::getPhone, book.getPhone());
-                        baseMapper.update(book, updateWrapper);
-                        break;
-                    }
-                }
-            }
-        }
-        if (ObjectUtil.isNull(addressBooks)){
-            addressBook.setIsDefault(AddressBookStatusEnum.IS_DEFAULT.getStatus());
-            baseMapper.insert(addressBook);
+        updateExistingDefaultAddressIfNecessary(addressBook);
+        baseMapper.insert(addressBook);
+    }
+
+    /**
+     * 更新存在默认地址的情况（如果传过来是默认地址，但是之前有默认地址。那么更新之前的默认地址为非默认）
+     * @param addressBook
+     */
+    private void updateExistingDefaultAddressIfNecessary(AddressBook addressBook){
+        if (!addressBook.getIsDefault().equals(AddressBookStatusEnum.IS_DEFAULT.getStatus())){
             return;
         }
-        baseMapper.insert(addressBook);
+        LambdaQueryWrapper<AddressBook> queryWrapper = Wrappers.lambdaQuery(AddressBook.class)
+                .eq(AddressBook::getUserId, UserContext.currentUserId())
+                .eq(AddressBook::getIsDefault, AddressBookStatusEnum.IS_DEFAULT.getStatus());
+        AddressBook book = baseMapper.selectOne(queryWrapper);
+        if (ObjectUtil.isNotNull(book)){
+            book.setIsDefault(AddressBookStatusEnum.IS_NOT_DEFAULT.getStatus());
+
+            LambdaUpdateWrapper<AddressBook> updateWrapper = Wrappers.lambdaUpdate(AddressBook.class)
+                    .eq(AddressBook::getId, book.getId());
+            baseMapper.update(book, updateWrapper);
+        }
     }
 }
