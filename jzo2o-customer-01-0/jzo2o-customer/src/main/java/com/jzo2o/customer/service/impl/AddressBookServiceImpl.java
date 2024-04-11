@@ -29,6 +29,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>
@@ -127,6 +128,58 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
         int update = baseMapper.update(addressBook, updateWrapper);
         if (update < 1){
             throw new CommonException("修改地址失败");
+        }
+    }
+
+    /**
+     * 地址簿批量删除
+     * @param ids 批量id
+     */
+    @Override
+    public void batchDelete(List<String> ids) {
+        if (CollUtils.isEmpty(ids)){
+            throw new ForbiddenOperationException("请输入合法参数");
+        }
+        int i = baseMapper.deleteBatchIds(ids);
+        if (ObjectUtil.equals(i, 0)){
+            throw new CommonException("批量删除失败");
+        }
+    }
+
+    /**
+     * 设置/取消默认地址
+     * @param id 地址id
+     * @param flag 修改参数（0 非默认地址，1 默认地址）
+     */
+    @Override
+    public void updateDefaultAddress(Long id, Long flag) {
+        LambdaQueryWrapper<AddressBook> queryWrapper = Wrappers.lambdaQuery(AddressBook.class)
+                .eq(AddressBook::getId, id)
+                .eq(AddressBook::getUserId, UserContext.currentUserId());
+
+        Optional<AddressBook> optionalAddressBook = Optional.ofNullable(baseMapper.selectOne(queryWrapper));
+        if (optionalAddressBook.isEmpty()){
+            throw new CommonException("地址簿不存在");
+        }
+        AddressBook addressBook = optionalAddressBook.get();
+        if (ObjectUtil.equals(addressBook.getIsDefault(), flag)){
+            throw new ForbiddenOperationException("无法修改");
+        }
+        addressBook.setIsDefault(flag.intValue());
+        int update = baseMapper.updateById(addressBook);
+        if (update < 1){
+            throw new ForbiddenOperationException("修改失败");
+        }
+        if (flag == AddressBookStatusEnum.IS_DEFAULT.getStatus()){
+            queryWrapper.clear();
+            queryWrapper.eq(AddressBook::getUserId, UserContext.currentUserId())
+                    .eq(AddressBook::getIsDefault, AddressBookStatusEnum.IS_DEFAULT.getStatus())
+                    .ne(AddressBook::getId, id);
+            AddressBook existingAddressBook = baseMapper.selectOne(queryWrapper);
+            if (ObjectUtil.isNotNull(existingAddressBook)){
+                existingAddressBook.setIsDefault(AddressBookStatusEnum.IS_NOT_DEFAULT.getStatus());
+                baseMapper.updateById(existingAddressBook);
+            }
         }
     }
 

@@ -16,6 +16,7 @@ import com.jzo2o.mvc.model.Result;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 地址管理
@@ -67,4 +68,29 @@ public class AddressBookController {
         addressBookService.updateAddressBook(id, addressBookUpsertReqDTO);
         return Result.ok("修改成功");
     }
+
+    /**
+     * 地址簿批量删除
+     * @param ids 批量id
+     * @return 响应参数
+     */
+    @DeleteMapping("/batch")
+    public Result<String> batchDelete(@RequestBody List<String> ids){
+        addressBookService.batchDelete(ids);
+        return Result.ok("批量删除成功");
+    }
+
+    /**
+     * 设置/取消默认地址
+     * @param id 地址id
+     * @param flag 修改参数（0 非默认地址，1 默认地址）
+     * @return 响应参数
+     */
+    @PutMapping("/default")
+    public Result<String> updateDefaultAddress(@RequestParam("id") Long id, @RequestParam("flag") Long flag){
+        addressBookService.updateDefaultAddress(id, flag);
+        return Result.ok("修改成功");
+    }
+
+
 }

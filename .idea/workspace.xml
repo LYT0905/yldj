@@ -155,7 +155,7 @@
       <workItem from="1712654665301" duration="12222000" />
       <workItem from="1712752773732" duration="613000" />
       <workItem from="1712753401308" duration="4067000" />
-      <workItem from="1712809474177" duration="8028000" />
+      <workItem from="1712809474177" duration="12535000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -309,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712825407496</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feature: customer-地址簿地址修改">
+      <option name="closed" value="true" />
+      <created>1712826487370</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712826487370</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +340,33 @@
     <MESSAGE value="optimize: customer-优化添加地址功能" />
     <MESSAGE value="optimize: customer-地址簿分页查询" />
     <MESSAGE value="feature: customer-地址簿详情" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-地址簿详情" />
+    <MESSAGE value="feature: customer-地址簿地址修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-地址簿地址修改" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>196</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/AddressBookServiceImpl.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

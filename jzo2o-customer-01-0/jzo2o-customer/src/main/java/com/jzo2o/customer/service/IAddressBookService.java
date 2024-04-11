@@ -55,4 +55,17 @@ public interface IAddressBookService extends IService<AddressBook> {
      * @param addressBookUpsertReqDTO 请求参数
      */
     void updateAddressBook(Long id, AddressBookUpsertReqDTO addressBookUpsertReqDTO);
+
+    /**
+     * 地址簿批量删除
+     * @param ids 批量id
+     */
+    void batchDelete(List<String> ids);
+
+    /**
+     * 设置/取消默认地址
+     * @param id 地址id
+     * @param flag 修改参数（0 非默认地址，1 默认地址）
+     */
+    void updateDefaultAddress(Long id, Long flag);
 }
