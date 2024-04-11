@@ -9,6 +9,7 @@ import com.jzo2o.common.model.PageResult;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
 import com.jzo2o.customer.model.dto.response.AddressBookPageQueryRespDTO;
+import com.jzo2o.customer.model.dto.response.AddressBookDetailRespDTO;
 import com.jzo2o.customer.service.IAddressBookService;
 import com.jzo2o.mvc.model.Result;
 
@@ -31,7 +32,7 @@ public class AddressBookController {
      * @return 响应结果
      */
     @PostMapping()
-    public Result<Object> save(@RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO){
+    public Result<String> save(@RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO){
         addressBookService.saveAddressBook(addressBookUpsertReqDTO);
         return Result.ok("新增地址成功");
     }
@@ -44,5 +45,16 @@ public class AddressBookController {
     @GetMapping("/page")
     public PageResult<AddressBookPageQueryRespDTO> page(AddressBookPageQueryReqDTO addressBookPageQueryReqDTO){
         return addressBookService.pageQuery(addressBookPageQueryReqDTO);
+    }
+
+    /**
+     * 地址簿详情
+     * @param id 地址簿id
+     * @return 响应参数
+     */
+    @GetMapping("/{id}")
+    public AddressBookDetailRespDTO detail(@PathVariable Long id){
+        AddressBookDetailRespDTO detail = addressBookService.detail(id);
+        return detail;
     }
 }
