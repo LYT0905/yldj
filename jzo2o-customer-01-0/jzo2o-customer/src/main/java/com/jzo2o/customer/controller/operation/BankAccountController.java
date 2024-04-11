@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 public class BankAccountController {
 
 //    @Resource
-//    private IBankAccountService bankAccountService;
+//   private IBankAccountService bankAccountService;
 
     @GetMapping("/{id}")
     @ApiOperation("根据服务人员/机构id查询银行账户信息")
