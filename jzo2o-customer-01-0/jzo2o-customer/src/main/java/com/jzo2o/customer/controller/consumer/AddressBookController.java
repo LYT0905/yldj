@@ -54,7 +54,6 @@ public class AddressBookController {
      */
     @GetMapping("/{id}")
     public AddressBookDetailRespDTO detail(@PathVariable Long id){
-        AddressBookDetailRespDTO detail = addressBookService.detail(id);
-        return detail;
+        return addressBookService.detail(id);
     }
 }
