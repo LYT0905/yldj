@@ -49,4 +49,10 @@ public interface IAddressBookService extends IService<AddressBook> {
      * @return 响应参数
      */
     AddressBookDetailRespDTO detail(Long id);
+
+    /**
+     * 地址簿地址修改
+     * @param addressBookUpsertReqDTO 请求参数
+     */
+    void updateAddressBook(Long id, AddressBookUpsertReqDTO addressBookUpsertReqDTO);
 }

@@ -114,8 +114,25 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
     }
 
     /**
+     * 地址簿地址修改
+     * @param addressBookUpsertReqDTO 请求参数
+     */
+    @Override
+    public void updateAddressBook(Long id, AddressBookUpsertReqDTO addressBookUpsertReqDTO) {
+        LambdaUpdateWrapper<AddressBook> updateWrapper = Wrappers.lambdaUpdate(AddressBook.class)
+                .eq(AddressBook::getId, id)
+                .eq(AddressBook::getIsDeleted, AddressBookIsDeletedStatusEnum.IS_NOT_DELETED.getStatus());
+        AddressBook addressBook = BeanUtils.toBean(addressBookUpsertReqDTO, AddressBook.class);
+        updateExistingDefaultAddressIfNecessary(addressBook);
+        int update = baseMapper.update(addressBook, updateWrapper);
+        if (update < 1){
+            throw new CommonException("修改地址失败");
+        }
+    }
+
+    /**
      * 更新存在默认地址的情况（如果传过来是默认地址，但是之前有默认地址。那么更新之前的默认地址为非默认）
-     * @param addressBook
+     * @param addressBook 地址
      */
     private void updateExistingDefaultAddressIfNecessary(AddressBook addressBook){
         if (!addressBook.getIsDefault().equals(AddressBookStatusEnum.IS_DEFAULT.getStatus())){

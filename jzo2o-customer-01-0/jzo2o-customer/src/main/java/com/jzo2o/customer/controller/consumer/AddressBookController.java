@@ -56,4 +56,15 @@ public class AddressBookController {
     public AddressBookDetailRespDTO detail(@PathVariable Long id){
         return addressBookService.detail(id);
     }
+
+    /**
+     * 地址簿地址修改
+     * @param addressBookUpsertReqDTO 请求参数
+     * @return 响应参数
+     */
+    @PutMapping("/{id}")
+    public Result<String> update(@PathVariable("id") Long id,@RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO){
+        addressBookService.updateAddressBook(id, addressBookUpsertReqDTO);
+        return Result.ok("修改成功");
+    }
 }
