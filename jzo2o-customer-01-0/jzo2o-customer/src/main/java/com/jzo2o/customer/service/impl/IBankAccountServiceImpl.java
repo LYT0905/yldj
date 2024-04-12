@@ -27,20 +27,21 @@ public class IBankAccountServiceImpl extends ServiceImpl<BankAccountMapper, Bank
      * @param bankAccountUpsertReqDTO 请求参数
      */
     @Override
-    public void saveOrUpdateBankAccount(BankAccountUpsertReqDTO bankAccountUpsertReqDTO) {
+    public BankAccountResDTO saveOrUpdateBankAccount(BankAccountUpsertReqDTO bankAccountUpsertReqDTO) {
         LambdaUpdateWrapper<BankAccount> queryWrapper = Wrappers.lambdaUpdate(BankAccount.class)
                 .eq(BankAccount::getUserId, UserContext.currentUserId())
-                .eq(BankAccount::getId, bankAccountUpsertReqDTO.getId());
+                .eq(ObjectUtil.isNotNull(bankAccountUpsertReqDTO.getId()), BankAccount::getId, bankAccountUpsertReqDTO.getId());
         BankAccount bankAccount = baseMapper.selectOne(queryWrapper);
         if (ObjectUtil.isNotNull(bankAccount)){
             // 更新操作
             baseMapper.update(BeanUtil.toBean(bankAccountUpsertReqDTO, BankAccount.class), queryWrapper);
-            return;
+            return BeanUtil.toBean(bankAccount, BankAccountResDTO.class);
         }
         // 新增操作
         bankAccount = BeanUtil.toBean(bankAccountUpsertReqDTO, BankAccount.class);
         bankAccount.setUserId(UserContext.currentUserId());
         baseMapper.insert(bankAccount);
+        return BeanUtil.toBean(bankAccount, BankAccountResDTO.class);
     }
 
     /**
