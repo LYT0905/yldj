@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/WorkerCertificationAuditController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/mapper/WorkerCertificationAuditMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/model/domain/WorkerCertificationAudit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IWorkerCertificationAuditService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/WorkerCertificationAuditServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/WorkerCertificationAuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/controller/worker/WorkerCertificationAuditController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IWorkerCertificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/IWorkerCertificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/WorkerCertificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-customer-01-0/jzo2o-customer/src/main/java/com/jzo2o/customer/service/impl/WorkerCertificationServiceImpl.java" afterDir="false" />
     </list>
@@ -20,8 +25,8 @@
       <list>
         <option value="myBatis-mapper" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -158,7 +163,7 @@
       <workItem from="1712809474177" duration="23268000" />
       <workItem from="1712845271708" duration="117000" />
       <workItem from="1712845398269" duration="24000" />
-      <workItem from="1712897478065" duration="5521000" />
+      <workItem from="1712897478065" duration="9339000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -352,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712899161999</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feature: customer-服务端-提交认证申请">
+      <option name="closed" value="true" />
+      <created>1712909607710</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1712909607711</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +393,8 @@
     <MESSAGE value="feature: customer-获取默认地址" />
     <MESSAGE value="feature: customer-服务端设置银行账户接口设计" />
     <MESSAGE value="feature: customer-机构端设置银行账户接口设计" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-机构端设置银行账户接口设计" />
+    <MESSAGE value="feature: customer-服务端-提交认证申请" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: customer-服务端-提交认证申请" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

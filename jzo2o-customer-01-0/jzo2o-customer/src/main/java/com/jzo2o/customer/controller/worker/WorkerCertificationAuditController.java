@@ -2,13 +2,12 @@ package com.jzo2o.customer.controller.worker;
 
 import com.jzo2o.customer.model.domain.WorkerCertification;
 import com.jzo2o.customer.model.dto.request.WorkerCertificationAuditAddReqDTO;
+import com.jzo2o.customer.model.dto.response.RejectReasonResDTO;
+import com.jzo2o.customer.service.IWorkerCertificationAuditService;
 import com.jzo2o.customer.service.IWorkerCertificationService;
 import com.jzo2o.mvc.model.Result;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -23,7 +22,7 @@ import javax.annotation.Resource;
 public class WorkerCertificationAuditController {
 
     @Resource
-    private IWorkerCertificationService workerCertificationService;
+    private IWorkerCertificationAuditService workerCertificationAuditService;
 
     /**
      * 提交认证申请
@@ -32,7 +31,16 @@ public class WorkerCertificationAuditController {
      */
     @PostMapping()
     public Result<Object> submit(@RequestBody WorkerCertificationAuditAddReqDTO workerCertificationAuditAddReqDTO){
-        workerCertificationService.submit(workerCertificationAuditAddReqDTO);
+        workerCertificationAuditService.submit(workerCertificationAuditAddReqDTO);
         return Result.ok(null);
+    }
+
+    /**
+     * 查询最新的驳回原因
+     * @return 响应结果
+     */
+    @GetMapping("/rejectReason")
+    public RejectReasonResDTO rejectReason(){
+        return workerCertificationAuditService.getRejectReason();
     }
 }
