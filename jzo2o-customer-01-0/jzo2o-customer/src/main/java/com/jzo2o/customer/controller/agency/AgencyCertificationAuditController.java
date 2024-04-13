@@ -1,12 +1,10 @@
 package com.jzo2o.customer.controller.agency;
 
 import com.jzo2o.customer.model.dto.request.AgencyCertificationAuditAddReqDTO;
+import com.jzo2o.customer.model.dto.response.RejectReasonResDTO;
 import com.jzo2o.customer.service.AgencyCertificationAuditService;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -30,5 +28,14 @@ public class AgencyCertificationAuditController {
     @PostMapping()
     public void submit(@RequestBody AgencyCertificationAuditAddReqDTO agencyCertificationAuditAddReqDTO){
         agencyCertificationAuditService.submitAgencyCertificationAudit(agencyCertificationAuditAddReqDTO);
+    }
+
+    /**
+     * 查询最新的驳回原因
+     * @return 响应参数
+     */
+    @GetMapping("/rejectReason")
+    public RejectReasonResDTO rejectReason(){
+        return agencyCertificationAuditService.getRejectReason();
     }
 }
