@@ -5,7 +5,6 @@ import com.jzo2o.api.foundations.dto.response.ServeItemResDTO;
 import com.jzo2o.api.foundations.dto.response.ServeTypeCategoryResDTO;
 import com.jzo2o.foundations.model.domain.ServeItem;
 import com.jzo2o.foundations.model.domain.ServeType;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -19,7 +18,6 @@ import java.util.List;
  * @author itcast
  * @since 2023-07-03
  */
-@Mapper
 public interface ServeItemMapper extends BaseMapper<ServeItem> {
 
 //    @Select("SELECT type.*  FROM serve_type AS type \n" +

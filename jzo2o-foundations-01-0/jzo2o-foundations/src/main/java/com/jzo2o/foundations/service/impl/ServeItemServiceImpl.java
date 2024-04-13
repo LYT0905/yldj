@@ -1,7 +1,6 @@
 package com.jzo2o.foundations.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -15,18 +14,15 @@ import com.jzo2o.common.expcetions.ForbiddenOperationException;
 import com.jzo2o.common.model.PageResult;
 import com.jzo2o.foundations.constants.RedisConstants;
 import com.jzo2o.foundations.enums.FoundationStatusEnum;
-import com.jzo2o.foundations.mapper.RegionMapper;
 import com.jzo2o.foundations.mapper.ServeItemMapper;
-import com.jzo2o.foundations.mapper.ServeMapper;
 import com.jzo2o.foundations.mapper.ServeTypeMapper;
-import com.jzo2o.foundations.model.domain.Region;
-import com.jzo2o.foundations.model.domain.Serve;
 import com.jzo2o.foundations.model.domain.ServeItem;
 import com.jzo2o.foundations.model.domain.ServeType;
 import com.jzo2o.foundations.model.dto.request.ServeItemPageQueryReqDTO;
 import com.jzo2o.foundations.model.dto.request.ServeItemUpsertReqDTO;
 import com.jzo2o.foundations.model.dto.request.ServeSyncUpdateReqDTO;
 import com.jzo2o.foundations.service.IServeItemService;
+import com.jzo2o.foundations.service.IServeService;
 import com.jzo2o.foundations.service.IServeSyncService;
 import com.jzo2o.mysql.utils.PageHelperUtils;
 import org.springframework.cache.annotation.CacheEvict;
@@ -35,9 +31,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * <p>
@@ -54,13 +48,8 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
 
     @Resource
     private ServeTypeMapper serveTypeMapper;
-
     @Resource
-    private ServeMapper serveMapper;
-
-    @Resource
-    private RegionMapper regionMapper;
-
+    private IServeService serveService;
     /**
      * 服务项新增
      *
@@ -175,20 +164,9 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
         }
 
         //有区域在使用该服务将无法禁用（存在关联的区域服务且状态为上架表示有区域在使用该服务项）
-        //todo
-        LambdaQueryWrapper<Serve> queryWrapper = Wrappers.lambdaQuery(Serve.class)
-                .eq(Serve::getServeItemId, id);
-        List<Serve> serves = serveMapper.selectList(queryWrapper);
-        Set<Long> set = new HashSet<>();
-        for (Serve serve : serves) {
-            if (ObjectUtil.equals(serve.getSaleStatus(), FoundationStatusEnum.ENABLE.getStatus())){
-                set.add(serve.getRegionId());
-            }
-        }
-
-        if (CollectionUtil.isNotEmpty(set)){
-            // 如果存在已启用的 Serve 记录，抛出异常
-            throw new ForbiddenOperationException("有区域在使用该服务将无法禁用");
+        int count = serveService.queryServeCountByServeItemIdAndSaleStatus(id, FoundationStatusEnum.ENABLE.getStatus());
+        if (count > 0) {
+            throw new ForbiddenOperationException("该服务有区域正在使用，无法进行禁用,请先将区域内的服务下架。");
         }
 
         //更新禁用状态
