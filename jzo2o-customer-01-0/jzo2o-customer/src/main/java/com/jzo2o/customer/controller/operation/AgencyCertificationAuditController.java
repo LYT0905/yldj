@@ -2,12 +2,12 @@ package com.jzo2o.customer.controller.operation;
 
 import com.jzo2o.common.model.PageResult;
 import com.jzo2o.customer.model.dto.request.AgencyCertificationAuditPageQueryReqDTO;
+import com.jzo2o.customer.model.dto.request.CertificationAuditReqDTO;
 import com.jzo2o.customer.model.dto.response.AgencyCertificationAuditResDTO;
 import com.jzo2o.customer.service.AgencyCertificationAuditService;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.models.auth.In;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -32,5 +32,15 @@ public class AgencyCertificationAuditController {
     @GetMapping("/page")
     public PageResult<AgencyCertificationAuditResDTO> page(AgencyCertificationAuditPageQueryReqDTO agencyCertificationAuditPageQueryReqDTO){
         return agencyCertificationAuditService.pageQuery(agencyCertificationAuditPageQueryReqDTO);
+    }
+
+    /**
+     * 审核机构认证信息
+     * @param certificationAuditReqDTO 请求参数
+     * @param id 认证申请id
+     */
+    @PutMapping("/audit/{id}")
+    public void agencyCertificationInformation(CertificationAuditReqDTO certificationAuditReqDTO, @PathVariable("id") Long id){
+        agencyCertificationAuditService.getAgencyCertificationInformation(certificationAuditReqDTO, id);
     }
 }
