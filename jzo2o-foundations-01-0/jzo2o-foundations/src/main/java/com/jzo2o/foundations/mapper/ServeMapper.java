@@ -7,7 +7,6 @@ import com.jzo2o.foundations.model.dto.response.ServeAggregationSimpleResDTO;
 import com.jzo2o.foundations.model.dto.response.ServeAggregationTypeSimpleResDTO;
 import com.jzo2o.foundations.model.dto.response.ServeCategoryResDTO;
 import com.jzo2o.foundations.model.dto.response.ServeResDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -20,10 +19,7 @@ import java.util.List;
  * @author itcast
  * @since 2023-07-03
  */
-
-@Mapper
 public interface ServeMapper extends BaseMapper<Serve> {
-
     /**
      * 根据区域查询服务列表
      * @param regionId
