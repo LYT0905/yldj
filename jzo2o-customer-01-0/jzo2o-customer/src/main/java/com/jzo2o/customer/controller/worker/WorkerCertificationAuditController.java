@@ -31,7 +31,7 @@ public class WorkerCertificationAuditController {
      */
     @PostMapping()
     public Result<Object> submit(@RequestBody WorkerCertificationAuditAddReqDTO workerCertificationAuditAddReqDTO){
-        workerCertificationAuditService.submit(workerCertificationAuditAddReqDTO);
+        workerCertificationAuditService.submitWorkerCertificationAudit(workerCertificationAuditAddReqDTO);
         return Result.ok(null);
     }
 

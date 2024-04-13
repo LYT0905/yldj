@@ -7,8 +7,10 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jzo2o.customer.enums.CertificationStatusEnum;
 import com.jzo2o.customer.mapper.WorkerCertificationAuditMapper;
+import com.jzo2o.customer.model.domain.AgencyCertification;
 import com.jzo2o.customer.model.domain.WorkerCertification;
 import com.jzo2o.customer.model.domain.WorkerCertificationAudit;
+import com.jzo2o.customer.model.dto.request.AgencyCertificationAuditAddReqDTO;
 import com.jzo2o.customer.model.dto.request.WorkerCertificationAuditAddReqDTO;
 import com.jzo2o.customer.model.dto.response.RejectReasonResDTO;
 import com.jzo2o.customer.service.IServeProviderService;
@@ -34,7 +36,7 @@ public class WorkerCertificationAuditServiceImpl extends ServiceImpl<WorkerCerti
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void submit(WorkerCertificationAuditAddReqDTO workerCertificationAuditAddReqDTO) {
+    public void submitWorkerCertificationAudit(WorkerCertificationAuditAddReqDTO workerCertificationAuditAddReqDTO) {
         Long serveProviderId;
         if (ObjectUtil.isNull(workerCertificationAuditAddReqDTO.getServeProviderId())){
             serveProviderId = UserContext.currentUserId();
@@ -79,4 +81,5 @@ public class WorkerCertificationAuditServiceImpl extends ServiceImpl<WorkerCerti
         WorkerCertificationAudit workerCertificationAudit = baseMapper.selectOne(queryWrapper);
         return new RejectReasonResDTO(workerCertificationAudit.getRejectReason());
     }
+
 }
