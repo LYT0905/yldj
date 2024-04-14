@@ -3,6 +3,7 @@ package com.jzo2o.foundations.controller.operation;
 
 import com.jzo2o.common.enums.EnableStatusEnum;
 import com.jzo2o.common.model.PageResult;
+import com.jzo2o.foundations.constants.RedisConstants;
 import com.jzo2o.foundations.model.dto.request.ServePageQueryReqDTO;
 import com.jzo2o.foundations.model.dto.request.ServeUpsertReqDTO;
 import com.jzo2o.foundations.model.dto.response.ServeResDTO;
@@ -11,6 +12,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -73,6 +76,7 @@ public class ServeController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "服务id", required = true, dataTypeClass = Long.class),
     })
+    @CachePut(value = RedisConstants.CacheName.SERVE, key = "#id", cacheManager = RedisConstants.CacheManager.ONE_DAY)
     public void onSale(@PathVariable("id") Long id) {
         serveService.onSale(id);
     }
@@ -82,6 +86,7 @@ public class ServeController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "服务id", required = true, dataTypeClass = Long.class),
     })
+    @CacheEvict(value = RedisConstants.CacheName.SERVE, key = "#id")
     public void offSale(@PathVariable("id") Long id) {
         serveService.offSale(id);
     }

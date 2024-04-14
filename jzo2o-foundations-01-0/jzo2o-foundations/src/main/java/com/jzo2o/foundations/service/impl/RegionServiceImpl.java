@@ -24,6 +24,7 @@ import com.jzo2o.foundations.service.IRegionService;
 import com.jzo2o.foundations.service.IServeService;
 import com.jzo2o.mysql.utils.PageUtils;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
@@ -147,6 +148,8 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
      * @param id 区域id
      */
     @Override
+    @CachePut(value = RedisConstants.CacheName.JZ_CACHE, key = "'ACTIVE_REGIONS'",
+            cacheManager = RedisConstants.CacheManager.ONE_DAY)
     public void active(Long id) {
         //区域信息
         Region region = baseMapper.selectById(id);
@@ -170,7 +173,6 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
         update(updateWrapper);
 
         //3.如果是启用操作，刷新缓存：启用区域列表、首页图标、热门服务、服务类型
-        // todo
     }
 
     /**
@@ -179,6 +181,11 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
      * @param id 区域id
      */
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = RedisConstants.CacheName.JZ_CACHE, key = "'ACTIVE_REGIONS'"),
+            @CacheEvict(value = RedisConstants.CacheName.SERVE_ICON, key = "#id"),
+            @CacheEvict(value = RedisConstants.CacheName.HOT_SERVE, key = "id")
+    })
     public void deactivate(Long id) {
         //区域信息
         Region region = baseMapper.selectById(id);
@@ -208,6 +215,8 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
      * @return 区域简略列表
      */
     @Override
+    @Cacheable(value = RedisConstants.CacheName.JZ_CACHE, key = "'ACTIVE_REGIONS'",
+            cacheManager = RedisConstants.CacheManager.FOREVER)
     public List<RegionSimpleResDTO> queryActiveRegionListCache() {
         return queryActiveRegionList();
     }

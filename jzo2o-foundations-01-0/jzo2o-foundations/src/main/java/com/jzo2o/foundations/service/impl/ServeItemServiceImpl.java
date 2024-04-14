@@ -27,6 +27,7 @@ import com.jzo2o.foundations.service.IServeSyncService;
 import com.jzo2o.mysql.utils.PageHelperUtils;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -182,6 +183,7 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
      */
     @Override
     @Transactional
+    @CacheEvict(value = RedisConstants.CacheName.SERVE_ITEM, key = "#id")
     public void deleteById(Long id) {
         ServeItem serveItem = baseMapper.selectById(id);
         if (ObjectUtil.isNull(serveItem)) {
@@ -232,6 +234,7 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
      * @return 服务项详细信息
      */
     @Override
+    @Cacheable(value = RedisConstants.CacheName.SERVE_ITEM, key = "#id", cacheManager = RedisConstants.CacheManager.ONE_DAY)
     public ServeItemResDTO queryServeItemAndTypeById(Long id) {
         return baseMapper.queryServeItemAndTypeById(id);
     }

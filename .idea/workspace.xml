@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="" />
+    <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/consumer/FirstPageServeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/handler/SpringCacheSyncHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/mapper/FirstPageServeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/model/dto/request/ServeItemSimpleSearchReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/FirstPageServeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/FirstPageServeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/mapper/FirstPageServeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/operation/ServeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/operation/ServeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/mapper/ServeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/mapper/ServeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/model/dto/response/ServeAggregationTypeSimpleResDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/model/dto/response/ServeAggregationTypeSimpleResDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/RegionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/RegionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/mapper/ServeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/mapper/ServeMapper.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,18 +32,46 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="myBatis-mapper" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="myBatis-mapper" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="dev_2" />
+                    <option name="lastUsedInstant" value="1713014996" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1713014995" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,7 +112,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev__2&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/27132/Java/yldj&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -99,7 +146,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CustomerApplicaiton">
+  <component name="RunManager" selected="Spring Boot.FoundationsApplication">
     <configuration name="CustomerApplicaiton" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="jzo2o-customer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jzo2o.customer.CustomerApplicaiton" />
@@ -154,7 +201,8 @@
       <workItem from="1712845271708" duration="117000" />
       <workItem from="1712845398269" duration="24000" />
       <workItem from="1712897478065" duration="9835000" />
-      <workItem from="1712982767425" duration="14349000" />
+      <workItem from="1712982767425" duration="15459000" />
+      <workItem from="1713070835489" duration="11947000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -396,7 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713014647118</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="init: 初始化dev_2分支">
+      <option name="closed" value="true" />
+      <created>1713015025435</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1713015025435</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +460,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feature: foundations-区域服务下架" />
     <MESSAGE value="feature: foundations-区域服务价格修改" />
     <MESSAGE value="feature: foundations-区域服务热门修改" />
     <MESSAGE value="init: 照片" />
@@ -429,7 +484,8 @@
     <MESSAGE value="feature: customer-机构端-查询最新的驳回原因" />
     <MESSAGE value="feature: customer-运营端-审核机构认证分页查询" />
     <MESSAGE value="fix: 修复机构端服务端提交申请认证漏洞" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复机构端服务端提交申请认证漏洞" />
+    <MESSAGE value="init: 初始化dev_2分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="init: 初始化dev_2分支" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
