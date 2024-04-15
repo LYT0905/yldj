@@ -5,15 +5,134 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0f918-ab56-4d11-aa82-e3fd7b5f1968" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/handler/ServeCanalDataSyncHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/config/AutoImportConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/constants/ErrorInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/constants/EsIndexConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/constants/FieldConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/constants/OrderConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/constants/OrdersOriginType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/constants/RedisConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/enums/BreachHaviorTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/enums/OrderPayStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/enums/OrderRefundStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/enums/OrderStatusChangeEventEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/enums/OrderStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/enums/ServeStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/BreachRecordMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/HistoryOrdersServeSyncMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/HistoryOrdersSyncMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/OrdersCanceledMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/OrdersDispatchMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/OrdersMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/OrdersRefundMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/OrdersSeizeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/OrdersServeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/mapper/ServeProviderSyncMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/BreachRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/CurrentServeProviderTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/HistoryOrdersServeSync.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/HistoryOrdersSync.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/Orders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/OrdersCanceled.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/OrdersDispatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/OrdersRefund.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/OrdersSeize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/OrdersServe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/ServeProviderInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/domain/ServeProviderSync.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/dto/OrderSnapshotDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/model/dto/OrderUpdateStatusDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/properties/DispatchProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/properties/ExecutorProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/service/IOrdersCommonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/service/IOrdersDiversionCommonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/service/impl/OrdersCommonServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/service/impl/OrdersDiversionCommonServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/utils/RedisUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java/com/jzo2o/orders/base/utils/ServeTimeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/BreachRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/HistoryOrdersServeSyncMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/HistoryOrdersSyncMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/IDispatchService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/IHistoryOrdersSyncService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/OrdersCanceledMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/OrdersDispatchMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/OrdersRefundMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/OrdersSeizeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/resources/mapper/ServeProviderSyncMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/OrdersManagerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/constants/EsIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/agency/AgencyOrdersServeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/consumer/ConsumerOrdersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/inner/InnerOrdersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/inner/InnerOrdersServeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/operation/OperationOrdersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/operation/OperationOrdersServeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/controller/worker/WorkerOrdersServeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/OrderCancelDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/ServeProviderInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrderPageQueryReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrderServeCancelReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersDispatchReceiveReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersDispatchRejectReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersPayReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersSeizeReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersServeAllocationReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersServePageQueryByServeProviderReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/OrdersServePageQueryReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/PlaceOrderReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/ServeFinishedReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/request/ServeStartReqDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OperationOrdersDetailResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersDispatchResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersPayResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersSeizeListResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersServeDetailResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersServeListResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersServeResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/OrdersServeStatusNumResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/PlaceOrderResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/model/dto/response/ServeProviderServeResDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/porperties/OrdersJobProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/porperties/TradeProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/IBreachRecordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/IOrdersCanceledService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/IOrdersCreateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/IOrdersManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/IOrdersRefundService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/IOrdersServeManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/impl/BreachRecordServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/impl/OrdersCanceledServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/impl/OrdersCreateServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/impl/OrdersManagerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/impl/OrdersRefundServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java/com/jzo2o/orders/manager/service/impl/OrdersServeManagerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/resources/bootstrap-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/resources/bootstrap-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/resources/bootstrap-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/resources/seata.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/IOrderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/IOrdersManagerServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/IOrdersServeManagerServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/IPlaceOrderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/OrderStateHandlerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/OrderStateMachineTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/OrderStatusChangeEventEnumTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/OrdersApiTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/test/java/com/jzo2o/orders/manager/service/SimulateTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jzo2o-orders/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6bec849-051c-46b9-ae39-d709662da55f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/consumer/FirstPageServeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/controller/consumer/FirstPageServeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/FirstPageServeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/FirstPageServeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/IServeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/IServeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/FirstPageServeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/FirstPageServeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/java/com/jzo2o/foundations/service/impl/ServeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jzo2o-foundations-01-0/jzo2o-foundations/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +152,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="dev_2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,6 +166,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="dev_3" />
+                    <option name="lastUsedInstant" value="1713173926" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="dev_2" />
                     <option name="lastUsedInstant" value="1713014996" />
@@ -90,38 +213,38 @@
     <option name="showMembers" value="true" />
     <option name="showModules" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__2&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/27132/Java/yldj&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;service.view.auto.scroll.to.source&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.data.views&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;a36bda7579c0f14a942223c32191ec96&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev__3",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/27132/Java/yldj",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "database.data.views",
+    "spring.configuration.checksum": "67e90268a5a18459529a34b0dfb809c0",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -159,6 +282,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrdersManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="jzo2o-orders-manager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jzo2o.orders.manager.OrdersManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PublicsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="jzo2o-publics" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jzo2o.publics.PublicsApplication" />
@@ -167,6 +297,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.OrdersManagerApplication" />
       <item itemvalue="Spring Boot.CustomerApplicaiton" />
       <item itemvalue="Spring Boot.PublicsApplication" />
       <item itemvalue="Spring Boot.FoundationsApplication" />
@@ -194,7 +325,8 @@
       <workItem from="1712897478065" duration="9835000" />
       <workItem from="1712982767425" duration="15459000" />
       <workItem from="1713070835489" duration="15965000" />
-      <workItem from="1713155218845" duration="2022000" />
+      <workItem from="1713155218845" duration="2703000" />
+      <workItem from="1713172611812" duration="1558000" />
     </task>
     <task id="LOCAL-00001" summary="init: 初始化项目">
       <option name="closed" value="true" />
@@ -452,7 +584,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713083105491</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="feature: foundations-门户">
+      <option name="closed" value="true" />
+      <created>1713157362062</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1713157362062</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feature: foundations-门户">
+      <option name="closed" value="true" />
+      <created>1713157375747</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713157375747</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +608,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feature: foundations-区域服务热门修改" />
     <MESSAGE value="init: 照片" />
     <MESSAGE value="optimize: foundations-区域启用和禁用功能完善" />
     <MESSAGE value="init" />
@@ -485,7 +632,8 @@
     <MESSAGE value="fix: 修复机构端服务端提交申请认证漏洞" />
     <MESSAGE value="init: 初始化dev_2分支" />
     <MESSAGE value="feature: 缓存实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: 缓存实现" />
+    <MESSAGE value="feature: foundations-门户" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: foundations-门户" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -21,6 +21,10 @@
     <file url="file://$PROJECT_DIR$/jzo2o-framework/jzo2o-thirdparty/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jzo2o-framework/jzo2o-xxl-job/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jzo2o-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jzo2o-orders/jzo2o-orders-manager/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jzo2o-orders/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jzo2o-orders/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jzo2o-publics/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
