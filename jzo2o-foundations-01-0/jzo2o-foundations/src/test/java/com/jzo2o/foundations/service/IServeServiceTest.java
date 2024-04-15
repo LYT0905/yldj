@@ -18,23 +18,11 @@ class IServeServiceTest {
     @Resource
     private IServeService serveService;
 
-    //分页测试
     @Test
-    public void test_page(){
-        ServePageQueryReqDTO servePageQueryReqDTO = new ServePageQueryReqDTO();
-        servePageQueryReqDTO.setRegionId(1686303222843662337L);
-        servePageQueryReqDTO.setPageNo(1L);
-        servePageQueryReqDTO.setPageSize(3L);
-        PageResult<ServeResDTO> page = serveService.page(servePageQueryReqDTO);
-        log.info("page : {}", page);
-        Assert.notEmpty(page.getList(),"列表为空");
+    void listServeItemByCityCode() {
+        List<Long> longs = serveService.queryServeItemIdListByCityCode("010");
+        System.out.println(longs);
     }
-
-//    @Test
-//    void listServeItemByCityCode() {
-//        List<Long> longs = serveService.queryServeItemIdListByCityCode("010");
-//        System.out.println(longs);
-//    }
 
 //    @Test
 //    void findHotServeListByCityCode() {
@@ -54,23 +42,33 @@ class IServeServiceTest {
 //        System.out.println(list.toString());
 //    }
 
-//    @Test
-//    void findDetailById() {
-//        ServeAggregationSimpleResDTO detail = serveService.findDetailById(1693815624114970626L);
-//        System.out.println(detail);
-//    }
-//
-//
-//    @Test
-//    void update() {
-//        serveService.update(1693815624114970626L, BigDecimal.valueOf(38.3));
-//    }
-//
-//    @Test
-//    void changeHotStatus() {
-//        serveService.changeHotStatus(1693815624114970626L, 1);
-//    }
+    @Test
+    void findDetailById() {
+        ServeAggregationSimpleResDTO detail = serveService.findDetailById(1693815624114970626L);
+        System.out.println(detail);
+    }
 
 
+    @Test
+    void update() {
+        serveService.update(1693815624114970626L, BigDecimal.valueOf(38.3));
+    }
 
+    @Test
+    void changeHotStatus() {
+        serveService.changeHotStatus(1693815624114970626L, 1);
+    }
+
+
+    //分页测试
+    @Test
+    public void test_page(){
+        ServePageQueryReqDTO servePageQueryReqDTO = new ServePageQueryReqDTO();
+        servePageQueryReqDTO.setRegionId(1677152267410149378L);
+        servePageQueryReqDTO.setPageNo(1L);
+        servePageQueryReqDTO.setPageSize(3L);
+        PageResult<ServeResDTO> page = serveService.page(servePageQueryReqDTO);
+        log.info("page : {}", page);
+        Assert.notEmpty(page.getList(),"列表为空");
+    }
 }

@@ -1,104 +1,94 @@
 package com.jzo2o.customer.controller.consumer;
 
-/**
- * @author LYT0905
- * @date 2024/04/10/21:57
- */
 
+import cn.hutool.core.bean.BeanUtil;
+import com.jzo2o.api.customer.dto.response.AddressBookResDTO;
 import com.jzo2o.common.model.PageResult;
+import com.jzo2o.customer.model.domain.AddressBook;
 import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
-import com.jzo2o.customer.model.dto.response.AddressBookDefaultAddressRespDTO;
-import com.jzo2o.customer.model.dto.response.AddressBookPageQueryRespDTO;
-import com.jzo2o.customer.model.dto.response.AddressBookDetailRespDTO;
 import com.jzo2o.customer.service.IAddressBookService;
-import com.jzo2o.mvc.model.Result;
-
+import com.jzo2o.mvc.utils.UserContext;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * 地址管理
+ * <p>
+ * 地址薄 前端控制器
+ * </p>
+ *
+ * @author itcast
+ * @since 2023-07-06
  */
-@RequestMapping("/consumer/address-book")
 @RestController("consumerAddressBookController")
+@RequestMapping("/consumer/address-book")
+@Api(tags = "用户端 - 地址薄相关接口")
 public class AddressBookController {
     @Resource
     private IAddressBookService addressBookService;
 
-    /**
-     * 新增地址簿
-     * @param addressBookUpsertReqDTO 请求参数
-     * @return 响应结果
-     */
-    @PostMapping()
-    public Result<String> save(@RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO){
-        addressBookService.saveAddressBook(addressBookUpsertReqDTO);
-        return Result.ok("新增地址成功");
+    @PostMapping
+    @ApiOperation("地址薄新增")
+    public void add(@RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO) {
+        addressBookService.add(addressBookUpsertReqDTO);
     }
 
-    /**
-     * 地址薄分页查询
-     * @param addressBookPageQueryReqDTO 请求参数
-     * @return 返回结果
-     */
-    @GetMapping("/page")
-    public PageResult<AddressBookPageQueryRespDTO> page(AddressBookPageQueryReqDTO addressBookPageQueryReqDTO){
-        return addressBookService.pageQuery(addressBookPageQueryReqDTO);
-    }
-
-    /**
-     * 地址簿详情
-     * @param id 地址簿id
-     * @return 响应参数
-     */
-    @GetMapping("/{id}")
-    public AddressBookDetailRespDTO detail(@PathVariable Long id){
-        return addressBookService.detail(id);
-    }
-
-    /**
-     * 地址簿地址修改
-     * @param addressBookUpsertReqDTO 请求参数
-     * @return 响应参数
-     */
     @PutMapping("/{id}")
-    public Result<String> update(@PathVariable("id") Long id,@RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO){
-        addressBookService.updateAddressBook(id, addressBookUpsertReqDTO);
-        return Result.ok("修改成功");
+    @ApiOperation("地址薄修改")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "地址薄id", required = true, dataTypeClass = Long.class)
+    })
+    public void update(@NotNull(message = "id不能为空") @PathVariable("id") Long id,
+                       @RequestBody AddressBookUpsertReqDTO addressBookUpsertReqDTO) {
+        addressBookService.update(id, addressBookUpsertReqDTO);
     }
 
-    /**
-     * 地址簿批量删除
-     * @param ids 批量id
-     * @return 响应参数
-     */
-    @DeleteMapping("/batch")
-    public Result<String> batchDelete(@RequestBody List<String> ids){
-        addressBookService.batchDelete(ids);
-        return Result.ok("批量删除成功");
+    @GetMapping("/{id}")
+    @ApiOperation("地址薄详情")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "地址薄id", required = true, dataTypeClass = Long.class)
+    })
+    public AddressBookResDTO detail(@NotNull(message = "id不能为空") @PathVariable("id") Long id) {
+        AddressBook addressBook = addressBookService.getById(id);
+        return BeanUtil.toBean(addressBook, AddressBookResDTO.class);
     }
 
-    /**
-     * 设置/取消默认地址
-     * @param id 地址id
-     * @param flag 修改参数（0 非默认地址，1 默认地址）
-     * @return 响应参数
-     */
     @PutMapping("/default")
-    public Result<String> updateDefaultAddress(@RequestParam("id") Long id, @RequestParam("flag") Long flag){
-        addressBookService.updateDefaultAddress(id, flag);
-        return Result.ok("修改成功");
+    @ApiOperation("地址薄设为默认/取消默认")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "地址薄id", required = true, dataTypeClass = Long.class),
+            @ApiImplicitParam(name = "flag", value = "是否为默认地址，0：否，1：是", required = true, dataTypeClass = Integer.class)
+    })
+    public void updateDefaultStatus(@NotNull(message = "id不能为空") @RequestParam("id") Long id,
+                                    @NotNull(message = "状态值不能为空") @RequestParam("flag") Integer flag) {
+        //当前登录用户id
+        Long userId = UserContext.currentUserId();
+        addressBookService.updateDefaultStatus(userId,id, flag);
     }
 
-    /**
-     * 获取默认地址
-     * @return 响应结果
-     */
+    @DeleteMapping("/batch")
+    @ApiOperation("地址薄批量删除")
+    @ApiImplicitParam(name = "ids", value = "地址薄id列表", required = true, dataTypeClass = List.class)
+    public void logicallyDelete(@NotNull(message = "id列表不能为空") @RequestBody List<Long> ids) {
+        addressBookService.removeByIds(ids);
+    }
+
+    @GetMapping("/page")
+    @ApiOperation("地址薄分页查询")
+    public PageResult<AddressBookResDTO> page(AddressBookPageQueryReqDTO addressBookPageQueryReqDTO) {
+        return addressBookService.page(addressBookPageQueryReqDTO);
+    }
+
     @GetMapping("/defaultAddress")
-    public AddressBookDefaultAddressRespDTO defaultAddress(){
-        return addressBookService.getDefaultAddress();
+    @ApiOperation("获取默认地址")
+    public AddressBookResDTO defaultAddress() {
+        return addressBookService.defaultAddress();
     }
 }

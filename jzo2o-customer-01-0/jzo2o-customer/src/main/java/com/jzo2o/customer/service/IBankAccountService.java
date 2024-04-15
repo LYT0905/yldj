@@ -6,19 +6,19 @@ import com.jzo2o.customer.model.dto.request.BankAccountUpsertReqDTO;
 import com.jzo2o.customer.model.dto.response.BankAccountResDTO;
 
 /**
- * @author LYT0905
- * @date 2024/04/11/20:10
+ * <p>
+ * 银行账户 服务类
+ * </p>
+ *
+ * @author itcast
+ * @since 2023-09-06
  */
 public interface IBankAccountService extends IService<BankAccount> {
-    /**
-     * 新增或更新银行账号信息接口
-     * @param bankAccountUpsertReqDTO 请求参数
-     */
-    BankAccountResDTO saveOrUpdateBankAccount(BankAccountUpsertReqDTO bankAccountUpsertReqDTO);
 
     /**
-     * 获取当前用户银行账号
-     * @return 响应参数
+     * 新增或更新
+     *
+     * @param bankAccountUpsertReqDTO 银行账号新增或更新模型
      */
-    BankAccountResDTO getCurrentUserBankAccount();
+    void upsert(BankAccountUpsertReqDTO bankAccountUpsertReqDTO);
 }

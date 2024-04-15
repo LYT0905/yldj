@@ -24,7 +24,7 @@ public class ServeAggregationTypeSimpleResDTO {
      * 服务类型id
      */
     @ApiModelProperty("服务类型id")
-    private Long  serveTypeId;
+    private Long serveTypeId;
 
     /**
      * 服务类型名称

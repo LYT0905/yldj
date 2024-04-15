@@ -8,8 +8,8 @@ import javax.annotation.Resource;
 
 @SpringBootTest
 class IBankAccountServiceTest {
-//    @Resource
-//    private IBankAccountService bankAccountService;
+    @Resource
+    private IBankAccountService bankAccountService;
 
     @Test
     void test() {
@@ -26,7 +26,7 @@ class IBankAccountServiceTest {
         bankAccountUpsertReqDTO.setBranch("海淀区支行");
         bankAccountUpsertReqDTO.setAccount("2345678787678767");
         bankAccountUpsertReqDTO.setAccountCertification(url);
-//        bankAccountService.upsert(bankAccountUpsertReqDTO);
+        bankAccountService.upsert(bankAccountUpsertReqDTO);
     }
 
 }

@@ -1,82 +1,90 @@
 package com.jzo2o.foundations.controller.consumer;
 
-/**
- * @author LYT0905
- * @date 2024/04/14/13:19
- */
 
-import com.jzo2o.api.foundations.dto.response.ServeItemSimpleResDTO;
-import com.jzo2o.api.foundations.dto.response.ServeTypeCategoryResDTO;
-import com.jzo2o.foundations.model.domain.ServeType;
-import com.jzo2o.foundations.model.dto.request.ServeItemSimpleSearchReqDTO;
-import com.jzo2o.foundations.model.dto.response.*;
-import com.jzo2o.foundations.service.FirstPageServeService;
+import com.jzo2o.foundations.model.dto.response.ServeAggregationSimpleResDTO;
+import com.jzo2o.foundations.model.dto.response.ServeAggregationTypeSimpleResDTO;
+import com.jzo2o.foundations.model.dto.response.ServeCategoryResDTO;
+import com.jzo2o.foundations.model.dto.response.ServeSimpleResDTO;
+import com.jzo2o.foundations.service.HomeService;
+import com.jzo2o.foundations.service.IServeService;
+import com.jzo2o.foundations.service.ServeAggregationService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * 门户页
+ * <p>
+ * 前端控制器
+ * </p>
+ *
+ * @author itcast
+ * @since 2023-07-03
  */
-@RestController("firstPageServeController")
+@Validated
+@RestController("consumerServeController")
 @RequestMapping("/customer/serve")
+@Api(tags = "用户端 - 首页服务查询接口")
 public class FirstPageServeController {
-
     @Resource
-    private FirstPageServeService firstPageServeService;
+    private IServeService serveService;
+    @Resource
+    private ServeAggregationService serveAggregationService;
+    @Resource
+    private HomeService homeService;
 
-    /**
-     * 首页服务列表
-     * @param regionId 区域id
-     * @return 响应结果
-     */
     @GetMapping("/firstPageServeList")
-    public List<ServeCategoryResDTO> serveCategory(@RequestParam("regionId") Long regionId){
-        return firstPageServeService.queryServeIconCategoryByRegionIdCache(regionId);
+    @ApiOperation("首页服务列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "regionId", value = "区域id", required = true, dataTypeClass = Long.class)
+    })
+    public List<ServeCategoryResDTO> serveCategory(@RequestParam("regionId") Long regionId) {
+        return homeService.queryServeIconCategoryByRegionIdCache(regionId);
     }
 
-    /**
-     * 服务类型列表缓存
-     * @param regionId 区域id
-     * @return 响应结果
-     */
-    @GetMapping("/serveTypeList")
-    public List<ServeAggregationTypeSimpleResDTO> serveTypeCategory(@RequestParam("regionId") Long regionId){
-        return firstPageServeService.queryServeTypeByRegionId(regionId);
-    }
-
-    /**
-     * 热门服务列表
-     * @param regionId 区域id
-     * @return 响应结果
-     */
     @GetMapping("/hotServeList")
-    public List<ServeAggregationSimpleResDTO> hotServe(@RequestParam("regionId") Long regionId){
-        return firstPageServeService.queryHotServeByRegionId(regionId);
+    @ApiOperation("首页热门服务列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "regionId", value = "区域id", required = true, dataTypeClass = Long.class)
+    })
+    public List<ServeAggregationSimpleResDTO> listHotServe(@NotNull(message = "regionId不能为空") @RequestParam("regionId") Long regionId) {
+        return homeService.findHotServeListByRegionIdCache(regionId);
     }
 
-    /**
-     * 服务详情
-     * @param id 服务id
-     * @return 响应结果
-     */
-    @GetMapping("/{id}")
-    public ServeAggregationSimpleResDTO serveDetail(@PathVariable Long id){
-        return firstPageServeService.queryServeDetail(id);
+    @GetMapping("/serveTypeList")
+    @ApiOperation("服务分类列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "regionId", value = "区域id", required = true, dataTypeClass = Long.class)
+    })
+    public List<ServeAggregationTypeSimpleResDTO> serveTypeList(@RequestParam("regionId") Long regionId) {
+        return homeService.queryServeTypeListByRegionIdCache(regionId);
     }
 
-    /**
-     * 首页服务搜索
-     * @param cityCode 城市编码
-     * @param serveTypeId 服务类型
-     * @param keyword 关键词
-     * @return 响应参数
-     */
     @GetMapping("/search")
+    @ApiOperation("首页服务搜索")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "cityCode", value = "城市编码", required = true, dataTypeClass = String.class),
+            @ApiImplicitParam(name = "serveTypeId", value = "服务类型id", dataTypeClass = Long.class),
+            @ApiImplicitParam(name = "keyword", value = "关键词", dataTypeClass = String.class)
+    })
     public List<ServeSimpleResDTO> findServeList(@RequestParam("cityCode") String cityCode,
                                                  @RequestParam(value = "serveTypeId", required = false) Long serveTypeId,
                                                  @RequestParam(value = "keyword", required = false) String keyword) {
-        return firstPageServeService.findServeList(cityCode, serveTypeId, keyword);
+        return serveAggregationService.findServeList(cityCode, serveTypeId, keyword);
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询服务")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "服务id", required = true, dataTypeClass = Long.class)
+    })
+    public ServeAggregationSimpleResDTO findById(@NotNull(message = "id不能为空") @PathVariable("id") Long id) {
+        return serveService.findDetailById(id);
     }
 }

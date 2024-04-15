@@ -2,40 +2,34 @@ package com.jzo2o.customer.controller.agency;
 
 import com.jzo2o.customer.model.dto.request.AgencyCertificationAuditAddReqDTO;
 import com.jzo2o.customer.model.dto.response.RejectReasonResDTO;
-import com.jzo2o.customer.service.AgencyCertificationAuditService;
+import com.jzo2o.customer.service.IAgencyCertificationAuditService;
+import com.jzo2o.mvc.utils.UserContext;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /**
- * @author LYT0905
- * @date 2024/04/13/12:38
+ * @author itcast
  */
-
-@RestController("agencyCertificationAuditController")
+@RestController("agencyAgencyCertificationAuditController")
 @RequestMapping("/agency/agency-certification-audit")
-@Api(tags = "机构端-提交认证接口设计")
+@Api(tags = "机构端 - 机构认证审核相关接口")
 public class AgencyCertificationAuditController {
-
     @Resource
-    private AgencyCertificationAuditService agencyCertificationAuditService;
+    private IAgencyCertificationAuditService agencyCertificationAuditService;
 
-    /**
-     * 机构提交认证申请
-     * @param agencyCertificationAuditAddReqDTO 请求参数
-     */
-    @PostMapping()
-    public void submit(@RequestBody AgencyCertificationAuditAddReqDTO agencyCertificationAuditAddReqDTO){
-        agencyCertificationAuditService.submitAgencyCertificationAudit(agencyCertificationAuditAddReqDTO);
+    @PostMapping
+    @ApiOperation("提交认证申请")
+    public void auditCertification(@RequestBody AgencyCertificationAuditAddReqDTO agencyCertificationAuditAddReqDTO) {
+        agencyCertificationAuditAddReqDTO.setServeProviderId(UserContext.currentUserId());
+        agencyCertificationAuditService.applyCertification(agencyCertificationAuditAddReqDTO);
     }
 
-    /**
-     * 查询最新的驳回原因
-     * @return 响应参数
-     */
     @GetMapping("/rejectReason")
-    public RejectReasonResDTO rejectReason(){
-        return agencyCertificationAuditService.getRejectReason();
+    @ApiOperation("查询最新的驳回原因")
+    public RejectReasonResDTO queryCurrentUserLastRejectReason() {
+        return agencyCertificationAuditService.queryCurrentUserLastRejectReason();
     }
 }

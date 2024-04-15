@@ -1,4 +1,4 @@
-package com.jzo2o.customer.controller.agency;
+package com.jzo2o.customer.controller.worker;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.jzo2o.common.model.CurrentUserInfo;
@@ -16,9 +16,9 @@ import javax.annotation.Resource;
 /**
  * @author itcast
  */
-@RestController("agencyBankAccountController")
-@RequestMapping("/agency/bank-account")
-@Api(tags = "机构端 - 银行账户信息相关接口")
+@RestController("workerBankAccountController")
+@RequestMapping("/worker/bank-account")
+@Api(tags = "服务端 - 银行账户信息相关接口")
 public class BankAccountController {
 
     @Resource

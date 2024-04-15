@@ -27,7 +27,6 @@ import com.jzo2o.foundations.service.IServeSyncService;
 import com.jzo2o.mysql.utils.PageHelperUtils;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,11 +45,12 @@ import java.util.List;
 public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem> implements IServeItemService {
     @Resource
     private IServeSyncService serveSyncService;
+    @Resource
+    private IServeService serveService;
 
     @Resource
     private ServeTypeMapper serveTypeMapper;
-    @Resource
-    private IServeService serveService;
+
     /**
      * 服务项新增
      *
@@ -163,7 +163,6 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
         if (!(FoundationStatusEnum.ENABLE.getStatus() == activeStatus)) {
             throw new ForbiddenOperationException("启用状态方可禁用");
         }
-
         //有区域在使用该服务将无法禁用（存在关联的区域服务且状态为上架表示有区域在使用该服务项）
         int count = serveService.queryServeCountByServeItemIdAndSaleStatus(id, FoundationStatusEnum.ENABLE.getStatus());
         if (count > 0) {
@@ -183,7 +182,6 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
      */
     @Override
     @Transactional
-    @CacheEvict(value = RedisConstants.CacheName.SERVE_ITEM, key = "#id")
     public void deleteById(Long id) {
         ServeItem serveItem = baseMapper.selectById(id);
         if (ObjectUtil.isNull(serveItem)) {
@@ -234,7 +232,6 @@ public class ServeItemServiceImpl extends ServiceImpl<ServeItemMapper, ServeItem
      * @return 服务项详细信息
      */
     @Override
-    @Cacheable(value = RedisConstants.CacheName.SERVE_ITEM, key = "#id", cacheManager = RedisConstants.CacheManager.ONE_DAY)
     public ServeItemResDTO queryServeItemAndTypeById(Long id) {
         return baseMapper.queryServeItemAndTypeById(id);
     }

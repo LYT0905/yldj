@@ -12,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 public class XxlJobHandlerTest {
 
-//    @Resource
-//    private XxlJobHandler xxlJobHandler;
-//
-//    @Test
-//    void rabbitmqErrorMsgPullAndResend() {
-//        xxlJobHandler.rabbitmqErrorMsgPullAndResend();
-//    }
+    @Resource
+    private XxlJobHandler xxlJobHandler;
+
+    @Test
+    void rabbitmqErrorMsgPullAndResend() {
+        xxlJobHandler.rabbitmqErrorMsgPullAndResend();
+    }
 }
