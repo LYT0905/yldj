@@ -159,7 +159,6 @@ public class FirstPageServeServiceImpl implements FirstPageServeService {
                     must.term(term->
                             term.field("city_code").value(cityCode)));
 
-            //todo 匹配服务类型
             if (ObjectUtil.isNotNull(serveTypeId)){
                 bool.must(must ->
                         must.term(term ->
