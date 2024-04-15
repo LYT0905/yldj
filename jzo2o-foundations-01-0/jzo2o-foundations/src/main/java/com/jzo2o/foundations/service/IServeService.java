@@ -90,5 +90,4 @@ public interface IServeService extends IService<Serve> {
      * @return 服务数量
      */
     int queryServeCountByServeItemIdAndSaleStatus(Long serveItemId, Integer saleStatus);
-
 }

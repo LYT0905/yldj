@@ -43,10 +43,10 @@ spring:
             refresh: false
           - data-id: shared-xxl-job.yaml # xxl-job配置
             refresh: false
-#          - data-id: shared-rabbitmq.yaml # rabbitmq配置
-#            refresh: false
-#          - data-id: shared-es.yaml # rabbitmq配置
-#            refresh: false
+          - data-id: shared-rabbitmq.yaml # rabbitmq配置
+            refresh: false
+          - data-id: shared-es.yaml # rabbitmq配置
+            refresh: false
           - data-id: shared-mysql.yaml # mysql配置
             refresh: false
 

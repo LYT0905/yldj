@@ -7,6 +7,7 @@ import com.jzo2o.foundations.model.dto.request.ServeItemSimpleSearchReqDTO;
 import com.jzo2o.foundations.model.dto.response.ServeAggregationSimpleResDTO;
 import com.jzo2o.foundations.model.dto.response.ServeAggregationTypeSimpleResDTO;
 import com.jzo2o.foundations.model.dto.response.ServeCategoryResDTO;
+import com.jzo2o.foundations.model.dto.response.ServeSimpleResDTO;
 
 import java.util.List;
 
@@ -43,4 +44,13 @@ public interface FirstPageServeService {
      */
     ServeAggregationSimpleResDTO queryServeDetail(Long id);
 
+
+    /**
+     * 首页服务搜索
+     * @param cityCode 城市编码
+     * @param serveTypeId 服务类型
+     * @param keyword 关键词
+     * @return 响应参数
+     */
+    List<ServeSimpleResDTO> findServeList(String cityCode, Long serveTypeId, String keyword);
 }
